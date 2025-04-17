@@ -1,0 +1,241 @@
+/* Estilos Gerais */
+body {
+    margin: 0;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: #f8f5ec;
+}
+
+.margem {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+h1, h2, h3{
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #363a24;
+}
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 50px;
+}
+
+h3{
+    font-size: 40px;
+}
+
+p{
+    font-size: 22px;
+    text-align: justify;
+    color: #4f3011;
+}
+
+/* Estilos do Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #363a24;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: auto;
+    height: 80px;
+}
+
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-links li {
+    margin: 0;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #e4d39e; 
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu-links a:hover {
+    color: #cba561; 
+}
+
+.menu-links a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #cba561;
+    transition: width 0.3s ease;
+}
+
+.menu-links a:hover::after {
+    width: 100%;
+}
+
+main .conteudo{
+    padding: 20px 0px;
+}
+
+/*ÁREA DE ATUAÇÃO*/
+
+.area-atuacao{
+    padding: 20px 0px;
+}
+
+.area-atuacao .flex{
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+}
+
+.area-atuacao h3{
+    
+    font-size: 30px;
+}
+
+.area-atuacao p{
+    width: 600px;
+}
+
+.area-atuacao #d{
+    text-align: right;
+}
+
+.area-atuacao #d .conteudo{
+    padding-right: 50px;
+    border-right: solid 3px #cba561;
+    height: 250px;
+}
+
+.area-atuacao #e{
+    text-align: left;
+}
+
+.area-atuacao #e .conteudo{
+    padding-left: 50px;
+    border-left: solid 3px #cba561;
+    height: 250px;
+}
+
+.area-atuacao .imagem img{
+    width: 450px;
+    height: 250px;
+    object-fit: cover;
+}
+
+
+/* Rodapé */
+
+.final {
+    background-color: #363a24;
+    color: #e4d39e;
+    padding: 10px 0px;
+    margin-top: 40px;
+}
+
+.final-conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.logotipo {
+    max-width: 50%;
+    text-align: right;
+}
+
+.logotipo-img {
+    width: auto;
+    height: 60px;
+}
+
+.final .logotipo p {
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: right;
+    width: 500px;
+    color: #e4d39e;
+}
+
+.social-rodape {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: right;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 25px;
+    color: #e4d39e;
+    cursor: pointer;
+}
+
+.direitos {
+    color: #e4d39e;
+    font-size: 16px;
+}
+
+/* Ajustes para o menu-rodape */
+.menu-rodape {
+    text-align: left;
+    width: 300px;
+    height: 310px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-rodape ul {
+    list-style: none;
+    padding: 0; 
+}
+
+.menu-rodape ul li {
+    margin-bottom: 20px; 
+}
+
+.menu-rodape li a {
+    color: #e4d39e; 
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.5 ease;
+}
+
+.menu-rodape a:hover, .social-icons i:hover {
+    color: #cba561;
+}
+
+.final p {
+    text-align: center;
+}

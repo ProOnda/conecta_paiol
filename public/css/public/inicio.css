@@ -1,0 +1,670 @@
+/* Estilos Gerais */
+body {
+    margin: 0;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: #f8f5ec;
+}
+
+.margem {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+h1, h2, h3{
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 50px;
+}
+
+h3{
+    font-size: 40px;
+}
+
+p{
+    font-size: 22px;
+    text-align: justify;
+}
+
+/* Estilos do Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #363a24;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: auto;
+    height: 80px;
+}
+
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-links li {
+    margin: 0;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #e4d39e; 
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu-links a:hover {
+    color: #cba561; 
+}
+
+.menu-links a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #cba561;
+    transition: width 0.3s ease;
+}
+
+.menu-links a:hover::after {
+    width: 100%;
+}
+
+/* Estilo geral */
+.inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #363a24;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+/* Efeito de entrada apenas para o conteúdo */
+.inicio .conteudo {
+    max-width: 50%;
+    margin-left: 50px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.inicio .conteudo h1 {
+    background: linear-gradient(90deg, #e4d39e, #cba561);
+    -webkit-background-clip: text; /* Suporte para navegadores baseados no WebKit */
+    -webkit-text-fill-color: transparent; /* Necessário para aplicar o gradiente ao texto */
+    background-clip: text; /* Suporte para outros navegadores */
+    color: transparent; /* Garante que apenas o gradiente apareça */
+}
+
+
+.inicio .conteudo p {
+    color: #f8f5ec;
+    line-height: 1.6;
+}
+
+/* Container da imagem com entrada sutil */
+.inicio .imagem-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.2s ease 0.5s;
+}
+
+.inicio .imagem-container img {
+    position: relative;
+    height: 500px;
+    z-index: 1;
+    transition: transform 1s ease-in-out;
+}
+
+/* Fundo circular sutil */
+.inicio .fundo-circular {
+    position: absolute;
+    right: 0;
+    width: 450px;
+    height: 670px;
+    background-color: #e4d39e;
+    border-radius: 50% 0% 0% 0%;
+    opacity: 0; /* Inicia invisível */
+    transition: opacity 1.5s ease 0.5s; /* Aparece com o tempo */
+}
+
+/* Ativação do efeito */
+.inicio.ativo .conteudo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.inicio.ativo .imagem-container {
+    opacity: 1;
+}
+
+.inicio.ativo .fundo-circular {
+    opacity: 1; /* Baixa opacidade para ficar sutil */
+}
+
+
+/* FRASE QUE FICA RODANDO */
+.frase {
+    width: 100%; /* A largura do container */
+    overflow: hidden; /* Esconde o texto que sai do container */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    box-sizing: border-box;
+    background-color: #4f3011;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frase p {
+    display: inline-block;
+    padding-left: 100%; /* Começa o texto fora da tela */
+    font-size: 40px;
+    color: #e4d39e;
+    animation: scrollText 25s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/*OBJETIVO*/
+
+.objetivo {
+    padding-bottom: 80px;
+}
+
+.objetivo .flex {
+    align-items: center;
+    margin-top: 50px;
+    gap: 80px;
+}
+
+.objetivo h2{
+    color: #363a24;
+    padding-left: 30px;
+    border-left: solid 5px #cba561;
+}
+
+.objetivo .conteudo p{
+    color: #4f3011;
+}
+
+.objetivo img {
+    width: 450px;
+    height: 300px;
+}
+
+.objetivo a {
+    text-decoration: none;
+}
+
+.objetivo .conteudo a p, .objetivo .conteudo a i{
+    font-size: 18px;
+    color: #363a24;
+}
+
+.objetivo .conteudo a .flex:hover{
+    transform: scale(1.02);
+}
+
+.objetivo .conteudo a .flex {
+    gap: 10px;
+    justify-content: left;
+    margin-top: -10px;
+    transition: 0.5s;
+}
+
+/*CARROSSEL - Agricultura Familiar*/
+
+.carrossel{
+    height: 320px;
+    width: auto;
+    margin-bottom: 250px;
+}
+
+.carrossel .flex {
+    justify-content: center;
+    align-items: center;
+}
+
+.carrossel .conteudo {
+    background-color: #4f3011;
+    opacity: 80%;
+    padding: 20px 40px;
+    height: 360px;
+}
+
+.carrossel img {
+    width: 600px;
+    height: 400px;
+}
+
+.carrossel .conteudo h3 {
+    color: #e4d39e;
+    padding-left: 15px;
+    border-left: solid 3px #cba561;
+}
+
+.carrossel .conteudo p {
+    font-size: 18px;
+    color: #f8f5ec;
+}
+
+.carrossel .conteudo i {
+    font-size: 18px;
+    color: #e4d39e;
+}
+
+.carrossel a {
+    text-decoration: none;
+}
+
+.carrossel .conteudo a p {
+    font-size: 14px;
+    color: #e4d39e;
+}
+
+.carrossel .conteudo a .flex {
+    justify-content: start;
+    gap: 10px;
+    margin-top: -1px;
+    transition: 0.5s;
+}
+
+.carrossel .conteudo a .flex:hover{
+    transform: scale(1.02);
+}
+
+.carrossel .indicador .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.indicador i {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.indicador i.active {
+    color: #363a24;
+}
+
+/*ESTATISTICA*/
+
+.estatistica-total{
+    display: flex;
+    justify-content: center;
+}
+
+.estatistica-total img{
+    width: 100%;
+    height: 350px;
+    position: absolute;
+}
+
+.estatistica {
+    width: 100%;
+    height: 350px;
+    background-color: #363a24c5;
+    position: relative;
+}
+
+.estatistica .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.estatistica p {
+    font-size: 40px;
+    color: #e4d39e;
+    line-height: 50px;
+}
+
+.estatistica p#num {
+    font-size: 150px;
+    font-weight: bold;
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.estatistica img {
+    width: 120px;
+    height: 120px;
+}
+
+/*ARTIGOS E DICAS*/
+
+.artigos-dicas {
+    padding: 50px 0px;
+}
+
+.artigos-dicas h2 {
+    color: #363a24;
+    margin-bottom: 30px;
+}
+
+.artigos-dicas .linha {
+    border: solid 3px #cba561;
+    width: 200px;
+}
+
+/*HISTÓRIAS INSPIRADORAS*/
+
+.historias {
+    padding: 50px 0;
+    position: relative;
+}
+
+.historias h2 {
+    color: #363a24;
+    padding-left: 30px;
+    border-left: solid 5px #cba561;
+    margin-bottom: 50px;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.relatos-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.relato {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: left;
+    background-color: #e4d29e83;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.relatos-container p.nome {
+    font-weight: bold;
+    color: #4f3011;
+    font-size: 20px;
+}
+
+.relatos-container p.funcao {
+    color: #4f3011;
+    font-size: 18px;
+}
+
+.relatos-container p.txt {
+    font-size: 18px;
+    color: #363a24;
+    font-style: italic;
+}
+
+.indicators {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.indicators .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.indicators .dot.active {
+    background-color: #363a24;
+}
+
+/*MOTIVOS*/
+
+.motivos {
+    padding: 50px 0px;
+    background-color: #4f3011;
+}
+
+.motivos .flex {
+    justify-content: space-between;
+}
+
+.motivos img {
+    width: 80px;
+    height: 80px;
+}
+
+.motivos .alimentos, .sustentabilidade, .impacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.motivos h3 {
+    font-size: 30px;
+    color: #cba561;
+    justify-content: center;
+    width: 300px;
+    text-align: center;
+}
+
+.motivos p {
+    font-size: 16px;
+    text-align: center;
+    width: 300px;
+    color: #f8f5ec;
+}
+
+/*SLIDESHOW*/
+
+/* Slideshow container */
+.slideshow {
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+}
+
+.slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow img.active {
+    opacity: 1;
+}
+
+.slideshow .quadrado{
+    display: flex;
+}
+
+/* Estrutura básica dos quadrados */
+.slideshow .quadrado .quadrado1, 
+.slideshow .quadrado .quadrado2, 
+.slideshow .quadrado .quadrado3, 
+.slideshow .quadrado .quadrado4, 
+.slideshow .quadrado .quadrado5 {
+    width: 20%;
+    height: 500px;
+    position: relative;
+    animation: shine 5s ease-in-out infinite;
+    /* Define o efeito para cada quadrado */
+}
+
+/* Definindo as cores de fundo */
+.slideshow .quadrado .quadrado1, .slideshow .quadrado .quadrado5 {
+    background-color: #363a2487;
+    animation-name: shine1;
+}
+
+.slideshow .quadrado .quadrado2, .slideshow .quadrado .quadrado4 {
+    background-color: #4f30116b;
+    animation-name: shine2;
+}
+
+.slideshow .quadrado .quadrado3 {
+    background-color: #cba4616c;
+    animation-name: shine3;
+}
+
+/* Animações de brilho para cada quadrado */
+@keyframes shine1 {
+    0%, 100% {
+        background-color: #363a2487;
+    }
+    75% {
+        background-color: #f8f5ec3e;
+    }
+}
+
+@keyframes shine2 {
+    0%, 100% {
+        background-color: #4f30116b;
+    }
+    50% {
+        background-color: #f8f5ec3e;
+    }
+}
+
+@keyframes shine3 {
+    0%, 100% {
+        background-color: #cba4616c;
+    }
+    25% {
+        background-color: #f8f5ec3e;
+    }
+}
+
+/* Rodapé */
+
+.final {
+    background-color: #363a24;
+    color: #e4d39e;
+    padding: 10px 0px;
+}
+
+.final-conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.logotipo {
+    max-width: 50%;
+    text-align: right;
+}
+
+.logotipo-img {
+    width: auto;
+    height: 60px;
+}
+
+.final .logotipo p {
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: right;
+    width: 500px;
+}
+
+.social-rodape {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: right;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 25px;
+    color: #e4d39e;
+    cursor: pointer;
+}
+
+.direitos {
+    color: #e4d39e;
+    font-size: 16px;
+}
+
+/* Ajustes para o menu-rodape */
+.menu-rodape {
+    text-align: left;
+    width: 300px;
+    height: 310px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-rodape ul {
+    list-style: none;
+    padding: 0; 
+}
+
+.menu-rodape ul li {
+    margin-bottom: 20px; 
+}
+
+.menu-rodape li a {
+    color: #e4d39e; 
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.5 ease;
+}
+
+.menu-rodape a:hover, .social-icons i:hover {
+    color: #cba561;
+}
+
+.final p {
+    text-align: center;
+}

@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* MAIN */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../img/Login.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* LOGIN */
+.login {
+    position: relative;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.504);
+    border: solid 3px #113615;
+    border-radius: 30px;
+    padding: 20px 40px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login .circulo {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #113615;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.login .circulo i {
+    font-size: 50px;
+    color: #dafb90;
+}
+
+.contact-form {
+    margin-top: 70px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #dafb90;
+    display: flex;
+    align-items: center;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    background-color: #113615;
+    padding: 10px 12px;
+}
+
+.input-group input {
+    width: 300px;
+    padding: 14px 40px;
+    background-color: white;
+    font-size: 16px;
+    margin-left: 20px;
+    outline: none;
+    border: none;
+}
+
+.input-group input::placeholder{
+    color: #113615;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #113615;
+    color: #dafb90;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #64a430;
+}
+
+
+.cadastro{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.cadastro p {
+    color: #272727;
+    font-size: 15px;
+}
+
+.cadastro a{
+    text-decoration: none;
+    font-size: 15px;
+    color: #113615;
+}

@@ -1,0 +1,267 @@
+/* Estilos Gerais */
+body {
+    margin: 0;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: #f8f5ec;
+}
+
+.margem {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+h1, h2, h3{
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #363a24;
+}
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 50px;
+}
+
+h3{
+    font-size: 40px;
+}
+
+p{
+    font-size: 22px;
+    text-align: justify;
+    color: #4f3011;
+}
+
+/* Estilos do Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #363a24;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: auto;
+    height: 80px;
+}
+
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-links li {
+    margin: 0;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #e4d39e; 
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu-links a:hover {
+    color: #cba561; 
+}
+
+.menu-links a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #cba561;
+    transition: width 0.3s ease;
+}
+
+.menu-links a:hover::after {
+    width: 100%;
+}
+
+/*CONTATO*/
+
+.contato-section {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.contato-container{
+    padding-left: 100px;
+}
+
+.contato-container h2 {
+    width: 700px;
+    margin-bottom: 50px;
+}
+
+.formulario-contato {
+    flex: 1;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+    padding: 20px;
+    background-color: transparent;
+    border: 3px solid #363a24;
+    font-size: 15px;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.formulario-contato textarea {
+    resize: none;
+    height: 100px;
+}
+
+.formulario-contato ::placeholder{
+    color: #4f3011;
+}
+
+.formulario-contato button {
+    padding: 20px;
+    width: 200px;
+    color: #4f3011;
+    border: 3px solid #363a24;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formulario-contato button:hover {
+    background-color: #363a24;
+    color: #cba561;
+}
+
+.imagem-contato {
+    flex-shrink: 0;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 17%
+}
+
+.imagem-contato img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Rodapé */
+
+.final {
+    background-color: #363a24;
+    color: #e4d39e;
+    padding: 10px 0px;
+}
+
+.final-conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.logotipo {
+    max-width: 50%;
+    text-align: right;
+}
+
+.logotipo-img {
+    width: auto;
+    height: 60px;
+}
+
+.final .logotipo p {
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: right;
+    width: 500px;
+    color: #e4d39e;
+}
+
+.social-rodape {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: right;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 25px;
+    color: #e4d39e;
+    cursor: pointer;
+}
+
+.direitos {
+    color: #e4d39e;
+    font-size: 16px;
+}
+
+/* Ajustes para o menu-rodape */
+.menu-rodape {
+    text-align: left;
+    width: 300px;
+    height: 310px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-rodape ul {
+    list-style: none;
+    padding: 0; 
+}
+
+.menu-rodape ul li {
+    margin-bottom: 20px; 
+}
+
+.menu-rodape li a {
+    color: #e4d39e; 
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.5 ease;
+}
+
+.menu-rodape a:hover, .social-icons i:hover {
+    color: #cba561;
+}
+
+.final p {
+    text-align: center;
+}
