@@ -1,239 +1,203 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início</title>
+@extends('layouts.public')
+
+@push('styles')
     <link rel="stylesheet" href="{{ asset('css/public/inicio.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Bebas+Neue&family=BioRhyme:wght@200..800&family=Cookie&family=Jura:wght@300..700&family=Orbitron:wght@400..900&family=Permanent+Marker&display=swap" rel="stylesheet">
-    <script src="{{ asset('js/public/inicio.js') }}" defer></script>
-</head>
-<body>
+@endpush
 
-<header>
-    <nav class="menu">
-        <a href="{{ route('public.inicio') }}" class="logo">
-            <img src="{{ asset('img/Logo.jpg') }}" alt="Logo" class="logo-img">
-        </a>
-        <ul class="menu-links">
-            <li><a href="{{ route('public.inicio') }}">Inicio</a></li>
-            <li><a href="{{ route('public.quem_somos') }}">Quem Somos</a></li>
-            <li><a href="{{ route('public.agricultura') }}">Agricultura Familiar</a></li>
-            <li><a href="{{ route('public.nutricao') }}">Nutrição</a></li>
-            <li><a href="{{ route('public.contato') }}">Contato</a></li>
-            <li><a href="{{ route('public.login') }}" target="_blank">Login</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <section class="inicio">
-        <div class="conteudo">
-            <h1>Saúde e Sustentabilidade: a união entre a Terra e o seu Bem-Estar</h1>
-            <p>Descubra como a agricultura familiar pode transformar a sua alimentação e saúde de forma natural e sustentável. Aqui, conectamos os alimentos frescos diretamente do campo com o conhecimento nutricional especializado, para que você viva de forma mais saudável e consciente.</p>
-        </div>
-        <div class="imagem-container">
-            <div class="fundo-circular"></div> <img src="{{ asset('img/inicio-alimentos.png') }}" alt="Agricultura Familiar">
-        </div>
-    </section>
-
-    <section class="frase">
-        <p>Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</p>
-        <p>Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</p>
-        <p>Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</p>
-    </section>
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#363a24" fill-opacity="1" d="M0,288L40,250.7C80,213,160,139,240,106.7C320,75,400,85,480,112C560,139,640,181,720,218.7C800,256,880,288,960,277.3C1040,267,1120,213,1200,192C1280,171,1360,181,1400,186.7L1440,192L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
-      </svg>
-
-    <section class="objetivo">
-        <div class="margem">
-            <h2>Promovendo Segurança Alimentar e Sustentabilidade através da Agricultura Familiar</h2>
-            <div class="flex">
-                <div class="conteudo">
-                    <p>Nosso objetivo é promover a segurança alimentar e o desenvolvimento sustentável por meio da valorização da agricultura familiar, oferecendo informações, recursos e serviços nutricionais que impactem positivamente a vida de comunidades em situação de vulnerabilidade. Buscamos conectar produtores locais e nutricionistas para garantir uma alimentação saudável e acessível, contribuindo para um futuro mais justo e equilibrado.</p>
-
-                    <a href="{{ route('public.quem_somos') }}">
-                        <div class="flex">
-                            <p>Quem Somos</p>
-                            <i class="bi bi-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-
-                <img src="{{ asset('img/soil-8080788_1280.jpg') }}" alt="">
-            </div>
-        </div>
-    </section>
-
-    <section class="carrossel">
-        <div class="margem">
-            <div class="flex" id="carousel-content">
-                <div class="conteudo">
-                    <h3>Agricultura Familiar</h3>
-                    <p>A agricultura familiar é um modelo de produção que alia sustentabilidade e responsabilidade social. Pequenos produtores, com o apoio de suas famílias, dedicam-se a cultivar alimentos frescos e nutritivos. Esse tipo de agricultura não só fortalece a economia local, como também promove a preservação do meio ambiente e a valorização das comunidades rurais.</p>
-                    <a href="{{ route('public.agricultura') }}">
-                        <div class="flex">
-                            <p>Agricultura Familiar</p>
-                            <i class="bi bi-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-                <img src="{{ asset('img/farmer-8294716_1280.jpg') }}" alt="">
-            </div>
-
-            <div class="flex" id="carousel-content" style="display:none;">
-                <div class="conteudo">
-                    <h3>Nutrição</h3>
-                    <p>A nutrição é a base para uma vida longa e saudável. Ter uma alimentação equilibrada não só fortalece o sistema imunológico, mas também melhora o humor, a energia e a saúde geral do corpo. Entender a importância da nutrição e fazer escolhas alimentares conscientes são passos importantes para o bem-estar físico e mental.</p>
-                    <a href="{{ route('public.nutricao') }}">
-                        <div class="flex">
-                            <p>Nutrição</p>
-                            <i class="bi bi-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-                <img src="{{ asset('img/nutricionaista.jpg') }}" alt="">
-            </div>
-
-            <div class="indicador">
-                <div class="flex">
-                    <i class="bi bi-circle-fill" id="indicator1" onclick="showCard(0)"></i>
-                    <i class="bi bi-circle-fill" id="indicator2" onclick="showCard(1)"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="estatistica-total">
-        <img src="{{ asset('img/fruit-700007_1920.jpg') }}" alt="">
-        <div class="estatistica">
-            <div class="margem">
-                <div class="flex">
-                    <p>+de</p>
-                    <p id="num">0</p>
-                    <p id="txt">de pessoas estão <br> adotando essa nova prática</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="artigos-dicas">
-        <div class="margem">
-            <h2>Artigos e Dicas para uma Vida Sustentável</h2>
-            <div class="linha"></div>
-        </div>
-    </section>
-
-    <section class="historias">
-        <div class="margem">
-            <h2>Histórias Inspiradoras</h2>
-            <div class="carousel">
-                <div class="relatos-container">
-                    <div class="relato">
-                        <p class="nome">Maria</p>
-                        <p class="funcao">Agricultora Familiar</p>
-                        <p class="txt">"Quando descobri essa plataforma, minha vida mudou. Hoje consigo vender meus produtos diretamente para quem precisa, sem intermediários. Ver as pessoas se alimentando com o que planto me dá uma sensação de propósito que nunca tive antes."</p>
+@section('content')
+    <section class="hero-background">
+        <div class="hero-conteudo">
+            <div class="hero-content-wrapper">
+                <div class="hero-text-content">
+                    <h1 class="hero-title">Saúde e Sustentabilidade: a união entre a Terra e o seu Bem-Estar</h1>
+                    <p class="hero-description">Descubra como a agricultura familiar pode transformar a sua alimentação e saúde de forma natural e sustentável. Aqui, conectamos os alimentos frescos diretamente do campo com o conhecimento nutricional especializado, para que você viva de forma mais saudável e consciente.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="hero-button">Encontre Produtos Frescos</a>
+                        <a href="#" class="hero-button">Descubra Nossos Agricultores</a>
+                        <a href="#" class="hero-button">Conecte-se com Nutricionistas</a>
                     </div>
-                    <div class="relato">
-                        <p class="nome">João</p>
-                        <p class="funcao">Consumidor</p>
-                        <p class="txt">"Sempre fui preocupado com a origem dos alimentos que coloco na mesa. Agora, sei exatamente de onde vem cada fruta, cada legume. É gratificante ajudar quem está no campo e ainda comer com mais qualidade."</p>
+                </div>
+
+                <div class="hero-image-content">
+                    <div class="hero-image-bg"></div>
+                    <img src="{{ asset('img/public/cesta-de-alimentos.svg') }}" alt="Cesta de alimentos frescos" class="hero-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="scrolling-text-section">
+            <div class="scrolling-text-container">
+                <div class="scrolling-text-content">
+                    <span class="scrolling-text-item">Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</span>
+                    <span class="scrolling-text-item">Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</span>
+                    <span class="scrolling-text-item">Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</span>
+                    <span class="scrolling-text-item">Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-wave-bottom">
+            <img src="{{ asset('img/shared/vetor-onda.svg') }}" alt="Onda decorativa">
+        </div>
+    </section>
+
+    {{-- NOVA SEÇÃO: Promovendo Segurança Alimentar --}}
+    <section class="about-us-section">
+        <div class="about-us-content-wrapper">
+            <div class="about-us-image-col">
+                {{-- O SVG que você mencionou que baixou do Figma --}}
+                {{-- Certifique-se de que o caminho está correto para onde você salvou o SVG --}}
+                <img src="{{ asset('img/public/about-us-images.svg') }}" alt="Agricultura Familiar e Nutrição" class="about-us-svg">
+            </div>
+            <div class="about-us-text-col">
+                <h2 class="about-us-title">Promovendo Segurança Alimentar e Sustentabilidade através da Agricultura Familiar</h2>
+                <p class="about-us-description">Nosso objetivo é promover a segurança alimentar e o desenvolvimento sustentável por meio da valorização da agricultura familiar, oferecendo informações, recursos e serviços nutricionais que impactem positivamente a vida de comunidades em situação de vulnerabilidade. Buscamos conectar produtores locais e nutricionistas para garantir uma alimentação saudável e acessível, contribuindo para um futuro mais justo e equilibrado.</p>
+                <a href="#" class="about-us-link">Sobre Nós</a> {{-- Adicione um link ou botão se houver --}}
+
+                <div class="about-us-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1000 +</span>
+                        <span class="stat-label">Agricultores Conectados</span>
                     </div>
-                    <div class="relato">
-                        <p class="nome">Ana</p>
-                        <p class="funcao">Nutricionista</p>
-                        <p class="txt">"Recomendar alimentos frescos e de qualidade sempre foi uma prioridade para mim, mas agora posso indicar alimentos de agricultores locais. Sinto que faço parte de algo maior, que conecta saúde e sustentabilidade."</p>
+                    <div class="stat-item">
+                        <span class="stat-number">1000 +</span>
+                        <span class="stat-label">Unidades Atendidas</span>
                     </div>
-                    <div class="relato">
-                        <p class="nome">Pedro</p>
-                        <p class="funcao">Agricultor Familiar</p>
-                        <p class="txt">"Antes, eu dependia de feiras que nem sempre davam resultado. Hoje, posso garantir uma renda fixa vendendo diretamente para as famílias. É incrível ver como a tecnologia pode aproximar quem planta de quem consome."</p>
+                    <div class="stat-item">
+                        <span class="stat-number">1000 +</span>
+                        <span class="stat-label">Nutricionistas Parceiros</span>
                     </div>
-                    <div class="relato">
-                        <p class="nome">Carla</p>
-                        <p class="funcao">Consumidora</p>
-                        <p class="txt">"Troquei o supermercado por essa nova forma de comprar e não me arrependo. Os produtos são frescos, mais baratos e, o melhor, sei que estou ajudando pequenas famílias. Nunca pensei que isso fosse possível."</p>
+                    <div class="stat-item">
+                        <span class="stat-number">1000 +</span>
+                        <span class="stat-label">Satisfação na Conexão</span>
                     </div>
                 </div>
             </div>
-            <div class="indicators">
-                <span class="dot active" onclick="currentSlide(0)"></span>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-                <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </section>
+
+        {{-- NOVA SEÇÃO: Sua Jornada para Conexões Saudáveis --}}
+    <section class="journey-section">
+        <div class="journey-content-wrapper">
+            <h2 class="journey-title">Sua Jornada para Conexões Saudáveis</h2>
+
+            <div class="journey-cards-container">
+                {{-- Card 1: Para Compradores --}}
+                <div class="journey-card">
+                    <div class="card-icon">
+                        <i class="bi bi-bag"></i> {{-- Ícone de sacola de compras --}}
+                    </div>
+                    <h3 class="card-title">Para Compradores</h3>
+                    <p class="card-description">Acesse Alimentos Frescos e de Qualidade. Conecte-se diretamente com produtores locais e descubra o melhor da agricultura familiar.</p>
+                    <a href="#" class="card-link">Ver Produtos</a>
+                </div>
+
+                {{-- Card 2: Para Agricultores --}}
+                <div class="journey-card">
+                    <div class="card-icon">
+                        {{-- Vamos tentar o bi-tree-fill para dar uma "pegada" mais de cultivo, ou bi-box-seam (caixa de empacotar) --}}
+                        {{-- O ícone bi-leaf (folha) é o mais comum, mas se você não gostou, vamos tentar outros --}}
+                        {{-- bi-tree-fill seria uma árvore preenchida --}}
+                        {{-- bi-basket2-fill para uma cesta de colheita --}}
+                        <i class="bi bi-flower1"></i> {{-- Experimente este para agricultores --}}
+                        {{-- OU: <i class="bi bi-basket2-fill"></i> --}}
+                    </div>
+                    <h3 class="card-title">Para Agricultores</h3>
+                    <p class="card-description">Expanda Seu Mercado. Conecte-se com novos clientes e valorize sua produção orgânica e agroecológica.</p>
+                    <a href="#" class="card-link">Cadastre-se como Agricultor</a>
+                </div>
+
+                {{-- Card 3: Para Nutricionistas --}}
+                <div class="journey-card">
+                    <div class="card-icon">
+                        <i class="bi bi-file-earmark-text"></i> {{-- Ícone de documento/prancheta --}}
+                    </div>
+                    <h3 class="card-title">Para Nutricionistas</h3>
+                    <p class="card-description">Compartilhe Seu Conhecimento. Inspire uma alimentação consciente e conecte-se com quem busca saúde e bem-estar.</p>
+                    <a href="#" class="card-link">Cadastre-se como Nutricionista</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="motivos">
-        <div class="margem">
-            <div class="flex">
-                <div class="alimentos">
-                    <img src="{{ asset('img/comida-dietetica.png') }}" alt="">
-                    <h3>Alimentos mais frescos e saudáveis</h3>
-                    <p>Produtos da agricultura familiar percorrem distâncias mais curtas até chegar à mesa, garantindo maior frescor e valor nutricional em cada refeição.</p>
-                </div>
-                <div class="sustentabilidade">
-                    <img src="{{ asset('img/broto.png') }}" alt="">
-                    <h3>Sustentabilidade em ação</h3>
-                    <p>Agricultura familiar preserva o meio ambiente ao usar práticas sustentáveis ​​e respeitar a biodiversidade, promovendo um consumo consciente.</p>
-                </div>
-                <div class="impacto">
-                    <img src="{{ asset('img/ajudando.png') }}" alt="">
-                    <h3>Impacto social direto</h3>
-                    <p>Ao apoiar agricultores familiares, você fortalece a economia local e ajuda comunidades rurais a se desenvolverem, promovendo uma cadeia alimentar mais justa e solidária.</p>
-                </div>
+    {{-- NOVA SEÇÃO: Explore o Melhor da Nossa Rede --}}
+    <section class="explore-section">
+        <div class="explore-content-wrapper">
+            {{-- REMOVA o div com estilos inline e use este h2 e p --}}
+            <h2 class="explore-title-primary">Explore o Melhor da Nossa Rede</h2>
+            <div class="line"></div>
+            <div class="explore-cards-container">
+                {{-- Seus cards de produtos/agricultores viriam aqui --}}
             </div>
         </div>
     </section>
 
-    <section class="slideshow">
-        <img src="{{ asset('img/watering-1501209_1280.jpg') }}" alt="">
-        <img src="{{ asset('img/nutricionista_2.jpeg') }}" alt="">
-        <div class="quadrado">
-            <div class="quadrado1"></div>
-            <div class="quadrado2"></div>
-            <div class="quadrado3"></div>
-            <div class="quadrado4"></div>
-            <div class="quadrado5"></div>
+    <section class="stories-section">
+        <div class="stories-content-wrapper">
+            <h2 class="stories-title">Histórias que Inspiram</h2>
+
+            <div class="stories-cards-container">
+                <div class="story-card">
+                    <div class="story-profile">
+                        <img src="{{ asset('img/shared/maria-profile.jpg') }}" alt="Foto de Perfil da Maria" class="profile-image">
+                        <span class="profile-name">Maria</span>
+                    </div>
+                    <p class="story-description">Graças ao Conecta Paiol, consegui escoar toda a minha produção orgânica e o sítio da minha família voltou a prosperar. A plataforma abriu portas que eu nem imaginava que existiam.</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-profile">
+                        <img src="{{ asset('img/shared/elisangela-profile.jpg') }}" alt="Foto de Perfil da Dra. Elisângela" class="profile-image">
+                        <span class="profile-name">Dra. Elisângela</span>
+                    </div>
+                    <p class="story-description">Compartilhar meus artigos e dicas sobre nutrição agroecológica no Conecta Paiol me conectou a um público muito maior. Pude ver o impacto do meu trabalho na vida de muitas pessoas que buscam uma alimentação mais consciente.</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-profile">
+                        <img src="{{ asset('img/shared/carlos-profile.jpg') }}" alt="Foto de Perfil do Chef Carlos" class="profile-image">
+                        <span class="profile-name">Chef Carlos</span>
+                    </div>
+                    <p class="story-description">Eu buscava fornecedores de orgânicos com transparência e qualidade. O Conecta Paiol simplificou essa busca, permitindo que eu construísse parcerias diretas com agricultores familiares que realmente valorizam o que fazem.</p>
+                </div>
+            </div>
+
+            <div class="pagination-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
         </div>
     </section>
 
-</main>
-
-<footer class="final">
-    <div class="final-conteudo">
-        <div class="menu-rodape">
-            <ul>
-                <li><a href="{{ route('public.inicio') }}">Inicio</a></li>
-                <li><a href="{{ route('public.quem_somos') }}">Quem Somos</a></li>
-                <li><a href="{{ route('public.agricultura') }}">Agricultura Familiar</a></li>
-                <li><a href="{{ route('public.nutricao') }}">Nutrição</a></li>
-                <li><a href="{{ route('public.contato') }}">Contato</a></li>
-                <li><a href="{{ route('public.login') }}" target="_blank">Login</a></li>
-            </ul>
-        </div>
-        <div class="logotipo">
-            <img src="{{ asset('img/Logo.jpg') }}" alt="Logotipo" class="logotipo-img">
-            <p>Promovendo um futuro mais saudável e sustentável, conectando agricultores familiares, nutricionistas e consumidores. Junte-se a nós nessa missão de transformar a alimentação.</p>
-            <div class="social-rodape">
-                <div class="social-icons">
-                    <i class="bi bi-whatsapp"></i>
-                    <i class="bi bi-instagram"></i>
-                    <i class="bi bi-facebook"></i>
+    <section class="pillars-section">
+        <h2 class="pillars-title">Nossos Pilares</h2>
+        <div class="line"></div> <div class="pillars-cards-container">
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <i class="bi bi-apple"></i> 
                 </div>
+                <h3 class="pillar-card-title">Alimentos mais frescos e saudáveis</h3>
+                <p class="pillar-card-description">Produtos da agricultura familiar percorrem distâncias mais curtas até chegar à mesa, garantindo maior frescor e valor nutricional em cada refeição.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <i class="bi bi-recycle"></i> 
+                </div>
+                <h3 class="pillar-card-title">Sustentabilidade em ação</h3>
+                <p class="pillar-card-description">Agricultura familiar preserva o meio ambiente ao usar práticas sustentáveis e respeitar a biodiversidade, promovendo um consumo consciente.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <i class="bi bi-people-fill"></i> 
+                </div>
+                <h3 class="pillar-card-title">Impacto social direto</h3>
+                <p class="pillar-card-description">Ao apoiar agricultores familiares, você fortalece a economia local e ajuda comunidades rurais a se desenvolverem, promovendo uma cadeia alimentar mais justa e solidária.</p>
             </div>
         </div>
-    </div>
-    <p class="direitos">© | Conecta Paiol de Saberes</p>
-</footer>
 
-</body>
-</html>
+        <div class="pillars-background-svg"></div>
+    </section>
+
+@endsection

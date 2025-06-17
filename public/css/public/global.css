@@ -1,0 +1,507 @@
+/* public/css/public/global.css */
+
+/* Variáveis CSS: Apenas as Cores Principais */
+:root {
+    --primary-green: #363A24; /* Verde Escuro Principal */
+    --light-background: #F8F8F8; /* Branco/Fundo Claro principal */
+    --dark-brown: #4F3011; /* Marrom Escuro */
+    --golden-dark: #CBA561; /* Dourado Escuro (Links, detalhes) */
+    --golden-light: #E4D39E; /* Dourado Claro (Degradês, backgrounds leves) */
+    --black: #000000; /* Preto Puro */
+    --dark-gray: #2E2E2E; /* Cinza Escuro (Textos secundários) */
+    --light-beige: #E8E5DA; /* Bege claro (para journey section) */
+    --soft-yellow-beige: #F8F5EC; /* Amarelo-bege suave (para cards e explore section) */
+
+    /* Variáveis Derivadas ou de Apoio */
+    --text-color-light: var(--light-background); /* Texto em fundo escuro (ex: navbar) */
+    --text-color-dark: var(--dark-gray); /* Texto padrão em fundo claro */
+
+    /* Fontes */
+    --font-body: 'Almarai', sans-serif;
+    --font-handwritten: 'Allison', cursive;
+    --font-inter: 'Inter', sans-serif;
+    --font-nav: 'Poppins', sans-serif; /* Usada para a navegação */
+
+    /* Espaçamentos Comuns */
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 100px;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--light-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------------------------------------------- */
+/* ESTILOS DE LAYOUT GLOBAIS E CABEÇALHO */
+/* ------------------------------------------- */
+
+/* Container Principal do Conteúdo */
+main {
+    flex-grow: 1;
+    background-color: var(--light-background);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-wrapper {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho Principal (Header) */
+.main-header {
+    background-color: var(--primary-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    position: relative;
+    z-index: 100;
+}
+
+/* Barra de Navegação (dentro do Header) */
+.main-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1340px;
+    padding: 0 var(--spacing-md);
+}
+
+.navbar-logo img {
+    height: 100px;
+    width: auto;
+    display: block;
+}
+
+/* Botão do Hambúrguer (escondido em desktop) */
+.navbar-toggler {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--golden-light);
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    z-index: 1001;
+}
+
+/* Menu de Navegação */
+.navbar-menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--golden-light);
+    font-size: 18px;
+    font-family: var(--font-nav);
+    font-weight: 400;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-link:hover {
+    color: var(--golden-dark);
+}
+
+/* Estilos para Dropdowns */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-green);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    padding: var(--spacing-sm) 0;
+    border-radius: 5px;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    color: var(--text-color-light);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-family: var(--font-nav);
+    font-size: 17px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--dark-brown);
+    color: var(--golden-light);
+}
+
+/* ------------------------------------------- */
+/* MEDIA QUERIES PARA RESPONSIVIDADE (GLOBAL E CABEÇALHO) */
+/* ------------------------------------------- */
+
+@media (max-width: 992px) {
+    .main-navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 var(--spacing-md);
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-menu {
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out, opacity 0.3s ease;
+        opacity: 0;
+        margin-top: 10px;
+        background-color: var(--primary-green);
+    }
+
+    .navbar-menu.active {
+        height: auto;
+        opacity: 1;
+        padding-bottom: var(--spacing-md);
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .nav-link {
+        padding: var(--spacing-sm) 0;
+        justify-content: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        background-color: var(--primary-green);
+    }
+
+    .dropdown-item {
+        padding: 8px 30px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-navbar {
+        padding: 0 var(--spacing-sm);
+    }
+    .navbar-logo img {
+        height: 80px;
+    }
+    .navbar-toggler {
+        font-size: 1.8rem;
+    }
+    .nav-link {
+        font-size: 16px;
+    }
+    .dropdown-item {
+        font-size: 15px;
+    }
+}
+
+/* public/css/public/footer.css */
+
+/* ------------------------------------------- */
+/* Footer Principal */
+/* ------------------------------------------- */
+.main-footer {
+    /* O background-color do footer inteiro deve ser a cor da seção superior (bege claro) */
+    
+    color: var(--golden-light); /* Cor do texto dentro do footer */
+    font-family: var(--font-body);
+    position: relative; /* Para posicionar a onda se necessário, ou para conter elementos internos */
+    padding-top: 0; /* REMOVIDO: O padding-top do footer. A onda agora será parte do fluxo normal. */
+    overflow: hidden; /* Importante para conter elementos que poderiam vazar, como sombras */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Onda SVG superior do footer (o div wrapper da imagem) */
+.footer-wave-top {
+    position: relative; /* Mantém relative para ocupar o espaço no fluxo */
+    width: 100%;
+    height: 180px; /* Altura da "área" da onda. Ajuste se sua onda SVG for mais alta/baixa. */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinha a imagem da onda na parte inferior do seu container */
+    overflow: hidden; /* Garante que qualquer parte do SVG que passe do height seja cortada */
+    /* background-color: var(--soft-yellow-beige); /* Opcional: apenas se a área da onda precisar de um fundo diferente do main-footer */
+}
+
+/* Estilo para a imagem SVG dentro da div footer-wave-top */
+.footer-wave-top img {
+    width: 100%; /* Faz a imagem preencher a largura do div pai */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Remove espaço extra abaixo da imagem */
+    rotate: 180deg;
+    object-fit: cover; /* Tenta cobrir a área, cortando se necessário */
+    /* max-height: 120px; /* Para garantir que não estoure o container, embora 'height: auto' já ajude */
+    min-width: 100%; /* Garante que a imagem se estenda por toda a largura */
+}
+
+
+/* Conteúdo principal do footer (navegação, logo, descrição, social) */
+.footer-content-wrapper {
+    background-color: var(--primary-green); /* A cor verde AGORA começa no wrapper do conteúdo */
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Garante que o fundo verde cubra toda a largura */
+    margin: 0 auto;
+    padding: 2% 10%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo e seu fundo fiquem acima da onda */
+    box-sizing: border-box; /* Inclui padding na largura do background */
+    /* Adiciona margem negativa para puxar o conteúdo para cima, sobrepondo a base da onda */
+    margin-top: -1px; /* Ajuste minúsculo para evitar linha branca de 1px entre onda e conteúdo */
+}
+
+.footer-left-col {
+    flex: 1;
+    min-width: 200px;
+    padding-right: var(--spacing-lg);
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-nav a {
+    color: var(--golden-light);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--golden-dark);
+}
+
+.footer-right-col {
+    flex: 2;
+    min-width: 300px;
+    text-align: right;
+}
+
+.footer-brand-logo img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+}
+
+.footer-social-icons a {
+    color: var(--golden-light);
+    font-size: 30px;
+    transition: color 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    color: var(--golden-dark);
+}
+
+/* Barra inferior de copyright */
+.footer-bottom-bar {
+    background-color: var(--primary-green);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+    margin-top: auto;
+}
+
+.footer-copyright {
+    margin: 0;
+    color: var(--golden-light);
+}
+
+/* ------------------------------------------- */
+/* Media Queries para Responsividade (Footer) */
+/* ------------------------------------------- */
+
+@media (max-width: 992px) {
+    .main-footer {
+        padding-top: 0;
+    }
+    .footer-wave-top {
+        height: 100px; /* Ajuste para mobile se a onda for menor */
+    }
+    .footer-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .footer-left-col,
+    .footer-right-col {
+        width: 100%;
+        min-width: auto;
+        padding-right: 0;
+        margin-bottom: var(--spacing-lg);
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-md);
+    }
+
+    .footer-nav li {
+        margin-bottom: 0;
+    }
+
+    .footer-brand-logo {
+        margin: 0 auto var(--spacing-md) auto;
+    }
+
+    .footer-social-icons {
+        justify-content: center;
+    }
+
+    .footer-description {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding-top: 0;
+    }
+    .footer-wave-top {
+        height: 80px; /* Ajuste para mobile se a onda for menor */
+    }
+    .footer-nav a {
+        font-size: 15px;
+    }
+    .footer-description {
+        font-size: 15px;
+    }
+    .footer-social-icons a {
+        font-size: 25px;
+    }
+    .footer-bottom-bar {
+        font-size: 13px;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding-top: 0;
+    }
+    .footer-wave-top {
+        height: 60px; /* Ajuste para mobile se a onda for menor */
+    }
+    .footer-content-wrapper {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    .footer-nav ul {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    .footer-nav li {
+        margin-bottom: var(--spacing-sm);
+    }
+    .footer-description {
+        font-size: 14px;
+        margin-bottom: var(--spacing-md);
+    }
+    .footer-social-icons {
+        gap: var(--spacing-sm);
+    }
+    .footer-social-icons a {
+        font-size: 22px;
+    }
+}
