@@ -7,13 +7,13 @@
         <div class="footer-left-col">
             <nav class="footer-nav">
                 <ul>
-                    <li><a href="#inicio">INICIO</a></li>
-                    <li><a href="#produtos">PRODUTOS</a></li>
-                    <li><a href="#agricultores">AGRICULTORES</a></li>
-                    <li><a href="#nutricionistas">NUTRICIONISTAS</a></li>
-                    <li><a href="#sobre-nos">SOBRE NÓS</a></li>
-                    <li><a href="#contato">CONTATO</a></li>
-                    <li><a href="#login">LOGIN</a></li>
+                    <li><a href="{{ route('inicio') }}">INICIO</a></li>
+                    <li><a href="{{ route('sobre-nos') }}">SOBRE NÓS</a></li>
+                    <li><a href="{{ route('agricultores.index') }}">AGRICULTORES</a></li>
+                    <li><a href="{{ route('nutricionistas.index') }}">NUTRICIONISTAS</a></li>
+                    <li><a href="{{ route('explorar.index') }}">EXPLORAR</a></li>
+                    <li><a href="{{ route('contato') }}">CONTATO</a></li>
+                    <li><a href="{{ route('login') }}">LOGIN</a></li>
                 </ul>
             </nav>
         </div>

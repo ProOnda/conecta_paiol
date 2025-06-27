@@ -4,28 +4,34 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('public.inicio');
-})->name('public.inicio');
+})->name('inicio'); // Rota para a página de Início
 
-Route::get('/login', function () {
-    return view('public.login');
-})->name('public.login');
+Route::get('/sobre-nos', function () {
+    return view('public.sobre-nos'); // Mapeia para a view 'sobre-nos.blade.php'
+})->name('sobre-nos');
 
-Route::get('/nutricao', function () {
-    return view('public.nutricao');
-})->name('public.nutricao');
+// Rota para a nova página "EXPLORAR"
+Route::get('/explorar', function () {
+    return view('public.explorar'); // Agora retorna a view 'public/explorar.blade.php'
+})->name('explorar.index'); // Renomeada de 'produtos.index' para 'explorar.index'
 
-Route::get('/quem-somos', function () {
-    return view('public.quem_somos');
-})->name('public.quem_somos');
+Route::get('/agricultores', function () {
+    return view('public.agricultores.index');
+})->name('agricultores.index'); // Rota para listar agricultores
 
-Route::get('/agricultura', function () {
-    return view('public.agricultura');
-})->name('public.agricultura');
+Route::get('/nutricionistas', function () {
+    return view('public.nutricionistas.index');
+})->name('nutricionistas.index'); // Rota para listar nutricionistas
+
 
 Route::get('/contato', function () {
     return view('public.contato');
-})->name('public.contato');
+})->name('contato');
 
-Route::get('/cadastro', function () {
+Route::get('/login', function () {
+    return view('public.login');
+})->name('login');
+
+Route::get('/cadastro', function () { // Rota para o seu formulário de cadastro
     return view('public.cadastro');
-})->name('public.cadastro');
+})->name('cadastro');
