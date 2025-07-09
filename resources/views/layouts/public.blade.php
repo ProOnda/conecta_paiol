@@ -17,10 +17,10 @@
     {{-- CSS Global (para header, footer, etc.) --}}
     <link rel="stylesheet" href="{{ asset('css/public/global.css') }}">
     @stack('styles') {{-- Para CSS específico da página atual --}}
-    <link rel="stylesheet" href="{{ asset('css/public/inicio.css') }} ">
 </head>
 <body>
-    @include('partials.public_header') {{-- Seu cabeçalho --}}
+    @yield('full_header') {{-- Este é o ponto onde o cabeçalho completo será injetado --}}
+
 
     <main>
         @yield('content') {{-- Conteúdo da página específica --}}

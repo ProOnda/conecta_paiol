@@ -4,42 +4,13 @@
     <link rel="stylesheet" href="{{ asset('css/public/inicio.css') }}">
 @endpush
 
+@section('title', 'Conecta Paiol de Saberes')
+
+@section('full_header')
+    @include('partials.header_inicio')
+@endsection
+
 @section('content')
-    <section class="hero-background">
-        <div class="hero-conteudo">
-            <div class="hero-content-wrapper">
-                <div class="hero-text-content">
-                    <h1 class="hero-title">Saúde e Sustentabilidade: a união entre a Terra e o seu Bem-Estar</h1>
-                    <p class="hero-description">Descubra como a agricultura familiar pode transformar a sua alimentação e saúde de forma natural e sustentável. Aqui, conectamos os alimentos frescos diretamente do campo com o conhecimento nutricional especializado, para que você viva de forma mais saudável e consciente.</p>
-                    <div class="hero-buttons">
-                        <a href="#" class="hero-button">Encontre Produtos Frescos</a>
-                        <a href="#" class="hero-button">Descubra Nossos Agricultores</a>
-                        <a href="#" class="hero-button">Conecte-se com Nutricionistas</a>
-                    </div>
-                </div>
-
-                <div class="hero-image-content">
-                    <div class="hero-image-bg"></div>
-                    <img src="{{ asset('img/public/cesta-de-alimentos.svg') }}" alt="Cesta de alimentos frescos" class="hero-image">
-                </div>
-            </div>
-        </div>
-
-        <div class="scrolling-text-section">
-            <div class="scrolling-text-container">
-                <div class="scrolling-text-content">
-                    <span class="scrolling-text-item">Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</span>
-                    <span class="scrolling-text-item">Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</span>
-                    <span class="scrolling-text-item">Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</span>
-                    <span class="scrolling-text-item">Cultivando saúde do campo à mesa, para um futuro mais sustentável e equilibrado.</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-wave-bottom">
-            <img src="{{ asset('img/shared/vetor-onda.svg') }}" alt="Onda decorativa">
-        </div>
-    </section>
 
     {{-- NOVA SEÇÃO: Promovendo Segurança Alimentar --}}
     <section class="about-us-section">

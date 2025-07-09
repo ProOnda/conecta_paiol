@@ -16,13 +16,12 @@ Route::get('/explorar', function () {
 })->name('explorar.index'); // Renomeada de 'produtos.index' para 'explorar.index'
 
 Route::get('/agricultores', function () {
-    return view('public.agricultores.index');
-})->name('agricultores.index'); // Rota para listar agricultores
+    return view('public.agricultores'); // Correto: Laravel procura por public/agricultores.blade.php
+})->name('agricultores.index');
 
 Route::get('/nutricionistas', function () {
-    return view('public.nutricionistas.index');
-})->name('nutricionistas.index'); // Rota para listar nutricionistas
-
+    return view('public.nutricionistas'); // Ajustado para o nome do arquivo: nutricao.blade.php
+})->name('nutricionistas.index');
 
 Route::get('/contato', function () {
     return view('public.contato');
