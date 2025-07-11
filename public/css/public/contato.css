@@ -1,267 +1,169 @@
-/* Estilos Gerais */
-body {
-    margin: 0;
-    font-family: "Arima", system-ui;
-    font-optical-sizing: auto;
-    font-style: normal;
-    background-color: #f8f5ec;
+/* public/css/public/contact.css (ou adicione ao seu main.css) */
+
+/* ==================================== */
+/* Seção: Formulário de Contato */
+/* ==================================== */
+.contact-form-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--white); /* ou outra cor de fundo da sua página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Para centralizar verticalmente se a seção for a única visível */
 }
 
-.margem {
-    max-width: 1200px;
+.contact-form-wrapper {
+    max-width: 800px; /* Largura máxima do formulário, conforme seu design */
+    width: 100%; /* Permite que o wrapper ocupe 100% da largura disponível até o max-width */
     margin: 0 auto;
+    padding: 0 var(--spacing-lg); /* Padding lateral para telas menores */
 }
 
-.flex {
-    display: flex;
-}
-
-h1, h2, h3{
-    font-family: "Cookie", cursive;
-    font-weight: 400;
-    font-style: normal;
-    color: #363a24;
-}
-
-h1{
-    font-size: 70px;
-}
-
-h2{
-    font-size: 50px;
-}
-
-h3{
-    font-size: 40px;
-}
-
-p{
-    font-size: 22px;
-    text-align: justify;
-    color: #4f3011;
-}
-
-/* Estilos do Menu */
-.menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 50px;
-    background-color: #363a24;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    width: auto;
-    height: 80px;
-}
-
-.menu-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-links li {
-    margin: 0;
-}
-
-.menu-links a {
-    text-decoration: none;
-    color: #e4d39e; 
-    font-size: 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.menu-links a:hover {
-    color: #cba561; 
-}
-
-.menu-links a::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 1px;
-    background: #cba561;
-    transition: width 0.3s ease;
-}
-
-.menu-links a:hover::after {
-    width: 100%;
-}
-
-/*CONTATO*/
-
-.contato-section {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-
-.contato-container{
-    padding-left: 100px;
-}
-
-.contato-container h2 {
-    width: 700px;
-    margin-bottom: 50px;
-}
-
-.formulario-contato {
-    flex: 1;
-    max-width: 700px;
+.contact-form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: var(--spacing-lg); /* Espaçamento entre os grupos de formulário */
 }
 
-.formulario-contato input,
-.formulario-contato textarea {
-    padding: 20px;
-    background-color: transparent;
-    border: 3px solid #363a24;
-    font-size: 15px;
-    font-family: "Arima", system-ui;
-    font-optical-sizing: auto;
-    font-style: normal;
+.form-group {
+    position: relative;
+    margin-bottom: 0; /* O gap já controla o espaçamento */
 }
 
-.formulario-contato textarea {
-    resize: none;
-    height: 100px;
+.input-icon-wrapper {
+    background-color: var(--light-beige); /* Cor de fundo dos campos */
+    border-radius: 14px; /* Borda arredondada dos campos */
+    display: flex; /* Para alinhar o ícone e o input */
+    align-items: center;
+    padding: var(--spacing-sm); /* Padding interno para o ícone e texto */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+    height: 60px; /* Altura fixa dos inputs */
 }
 
-.formulario-contato ::placeholder{
-    color: #4f3011;
+.input-icon-wrapper.align-top {
+    align-items: flex-start; /* Alinha o ícone no topo para o textarea */
+    padding-top: var(--spacing-md); /* Ajusta padding para o textarea */
 }
 
-.formulario-contato button {
-    padding: 20px;
-    width: 200px;
-    color: #4f3011;
-    border: 3px solid #363a24;
-    background-color: transparent;
-    font-size: 15px;
+
+.form-icon {
+    width: 24px; /* Tamanho do ícone */
+    height: 24px; /* Tamanho do ícone */
+    color: var(--dark-gray); /* Cor do ícone */
+    margin-right: var(--spacing-sm); /* Espaçamento entre o ícone e o input */
+    flex-shrink: 0; /* Garante que o ícone não encolha */
+}
+
+.form-control {
+    flex-grow: 1; /* O input/textarea ocupa o espaço restante */
+    background-color: transparent; /* Fundo transparente para não cobrir o background do wrapper */
+    border: none; /* Remove a borda padrão */
+    outline: none; /* Remove o outline no foco */
+    font-family: var(--font-body);
+    font-size: 14px; /* Tamanho da fonte do placeholder/texto */
+    color: var(--dark-gray); /* Cor do texto digitado */
+    padding: 0; /* Remove padding interno extra */
+    height: 100%; /* Ocupa a altura total do input-icon-wrapper */
+}
+
+.form-control::placeholder {
+    color: var(--medium-gray); /* Cor do placeholder */
+    opacity: 1; /* Garante que o placeholder seja visível em todos os navegadores */
+}
+
+/* Estilo específico para o textarea */
+.form-group-textarea .input-icon-wrapper {
+    height: 160px; /* Altura do textarea */
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    align-items: flex-start; /* Ícone no topo */
+}
+
+.form-group-textarea .form-control {
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+    min-height: 100%; /* Garante que o textarea ocupe a altura mínima */
+}
+
+.form-group-textarea .form-icon {
+    margin-top: -4px;
+}
+
+/* Estilo para o botão de enviar */
+.btn {
+    display: inline-flex; /* Para centralizar o texto "Enviar" */
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ocupa a largura total do formulário */
+    height: 60px; /* Altura do botão */
+    background-color: var(--light-beige); /* Cor de fundo do botão */
+    color: var(--dark-gray); /* Cor do texto do botão */
+    font-family: var(--font-body);
+    font-size: 14px; /* Tamanho da fonte do botão */
+    border: none;
+    border-radius: 14px; /* Borda arredondada do botão */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-.formulario-contato button:hover {
-    background-color: #363a24;
-    color: #cba561;
+.btn:hover {
+    background-color: var(--medium-beige); /* Cor mais escura no hover */
+    transform: translateY(-1px); /* Pequeno efeito de elevação */
 }
 
-.imagem-contato {
-    flex-shrink: 0;
-    width: 900px;
-    height: 900px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin-left: 17%
+.btn:active {
+    background-color: var(--dark-beige); /* Cor no click */
+    transform: translateY(0);
 }
 
-.imagem-contato img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* ==================================== */
+/* Media Queries para Responsividade    */
+/* ==================================== */
+
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: var(--spacing-lg) 0;
+        min-height: auto; /* Remove min-height para não empurrar muito o conteúdo */
+    }
+    .contact-form-wrapper {
+        padding: 0 var(--spacing-md); /* Reduz padding lateral */
+    }
+    .input-icon-wrapper,
+    .btn {
+        height: 50px; /* Reduz altura dos campos e botão */
+        border-radius: 10px; /* Ajusta borda arredondada */
+    }
+    .form-group-textarea .input-icon-wrapper {
+        height: 120px; /* Reduz altura do textarea */
+    }
+    .form-icon {
+        width: 20px; /* Reduz tamanho do ícone */
+        height: 20px;
+    }
+    .form-control,
+    .btn {
+        font-size: 13px; /* Reduz tamanho da fonte */
+    }
 }
 
-/* Rodapé */
-
-.final {
-    background-color: #363a24;
-    color: #e4d39e;
-    padding: 10px 0px;
-}
-
-.final-conteudo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
-}
-
-.logotipo {
-    max-width: 50%;
-    text-align: right;
-}
-
-.logotipo-img {
-    width: auto;
-    height: 60px;
-}
-
-.final .logotipo p {
-    margin: 20px 0;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: right;
-    width: 500px;
-    color: #e4d39e;
-}
-
-.social-rodape {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    justify-content: right;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    font-size: 25px;
-    color: #e4d39e;
-    cursor: pointer;
-}
-
-.direitos {
-    color: #e4d39e;
-    font-size: 16px;
-}
-
-/* Ajustes para o menu-rodape */
-.menu-rodape {
-    text-align: left;
-    width: 300px;
-    height: 310px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.menu-rodape ul {
-    list-style: none;
-    padding: 0; 
-}
-
-.menu-rodape ul li {
-    margin-bottom: 20px; 
-}
-
-.menu-rodape li a {
-    color: #e4d39e; 
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.5 ease;
-}
-
-.menu-rodape a:hover, .social-icons i:hover {
-    color: #cba561;
-}
-
-.final p {
-    text-align: center;
+@media (max-width: 480px) {
+    .contact-form-wrapper {
+        padding: 0 var(--spacing-sm); /* Mais padding lateral em telas muito pequenas */
+    }
+    .input-icon-wrapper,
+    .btn {
+        height: 45px; /* Reduz ainda mais a altura */
+        border-radius: 8px; /* Ajusta borda arredondada */
+    }
+    .form-group-textarea .input-icon-wrapper {
+        height: 100px; /* Altura mínima para textarea */
+    }
+    .form-control,
+    .btn {
+        font-size: 12px;
+    }
+    .form-icon {
+        width: 18px; /* Reduz ícone */
+        height: 18px;
+    }
 }

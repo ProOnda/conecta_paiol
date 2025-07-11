@@ -1,241 +1,670 @@
-/* Estilos Gerais */
-body {
-    margin: 0;
-    font-family: "Arima", system-ui;
-    font-optical-sizing: auto;
-    font-style: normal;
-    background-color: #f8f5ec;
+/* public/css/public/nutricionistas.css (Adicionar ao arquivo existente ou criar) */
+
+/* ==================================== */
+/* Seção: O Nutricionista: Guia para uma Vida Saudável */
+/* (Estilos para o design com SVG e texto ao lado) */
+/* ==================================== */
+.nutritionist-section {
+    padding: var(--spacing-xl) 0;
 }
 
-.margem {
-    max-width: 1200px;
+.nutritionist-wrapper {
+    max-width: 1340px; /* Largura máxima do conteúdo */
+    margin: 0 auto;
+    display: flex; /* Usa flexbox para alinhar o texto e a imagem */
+    gap: var(--spacing-lg); /* Espaçamento entre o texto e a imagem */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    flex-direction: row; /* Inverte a ordem: imagem na direita, texto na esquerda */
+}
+
+.nutritionist-content-text {
+    flex: 1; /* Permite que o texto ocupe o espaço disponível */
+    max-width: 600px; /* Largura máxima para o texto */
+    padding-right: var(--spacing-md); /* Adiciona padding à direita para o texto */
+}
+
+/* Estilos para o cabeçalho da seção do nutricionista */
+.nutritionist-content-text .section-header-content {
+    text-align: right; /* Alinha o título e a linha à direita */
+    margin-bottom: var(--spacing-lg);
+}
+
+.nutritionist-content-text .section-title {
+    font-family: var(--font-handwritten);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--dark-brown); /* Cor do título */
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    text-align: right; /* Garante alinhamento à direita */
+}
+
+.nutritionist-content-text .line {
+    width: 80px; /* Largura da linha */
+    height: 3px;
+    background-color: var(--dark-brown); /* Cor da linha */
+    margin: 0 0 var(--spacing-md) auto; /* Alinha a linha à direita e adiciona margem inferior */
+}
+
+.nutritionist-content-text .main-text-block {
+    color: var(--dark-gray);
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: justify; /* Texto justificado */
+}
+
+.nutritionist-content-text .description-text {
+    margin-bottom: 0; /* Remove margem inferior extra se for o último parágrafo */
+}
+
+
+/* Estilos para o contêiner e a imagem SVG */
+.nutritionist-image-container-svg {
+    flex-shrink: 0;
+    width: 680px; /* Largura fixa conforme o design da imagem fornecida */
+    height: 453px; /* Altura fixa conforme o design da imagem fornecida */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px; /* Borda arredondada conforme a imagem */
+    overflow: hidden; /* Garante que o SVG respeite o border-radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil, se desejar */
+}
+
+.combined-nutritionist-svg {
+    width: 100%; /* O SVG ocupa 100% do container */
+    height: 100%; /* O SVG ocupa 100% do container */
+    object-fit: cover; /* Cobre o espaço sem distorcer, cortando se necessário */
+    border-radius: 20px; /* Assegura o raio da borda no SVG */
+}
+
+
+/* ==================================== */
+/* Media Queries para Responsividade    */
+/* ==================================== */
+
+@media (max-width: 1200px) {
+    .nutritionist-wrapper {
+        gap: var(--spacing-lg); /* Reduz o espaçamento entre elementos */
+        padding: 0 var(--spacing-md);
+    }
+    .nutritionist-content-text {
+        max-width: 500px; /* Ajusta largura máxima do texto */
+    }
+    .nutritionist-image-container-svg {
+        width: 580px; /* Ajusta a largura do container SVG */
+        height: 380px; /* Ajusta a altura do container SVG */
+    }
+    .nutritionist-content-text .section-title {
+        font-size: clamp(2rem, 3.5vw, 3rem);
+    }
+    .nutritionist-content-text .main-text-block {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .nutritionist-wrapper {
+        flex-direction: column; /* Empilha o texto e a imagem verticalmente */
+        align-items: center; /* Centraliza os itens empilhados */
+        gap: var(--spacing-xl);
+        padding: 0 var(--spacing-lg);
+    }
+    .nutritionist-content-text {
+        max-width: 100%; /* Permite que o texto ocupe toda a largura disponível */
+        padding-right: 0; /* Remove padding extra */
+        text-align: center; /* Centraliza o texto */
+    }
+    .nutritionist-content-text .section-header-content {
+        text-align: center; /* Centraliza o cabeçalho */
+    }
+    .nutritionist-content-text .line {
+        margin: 0 auto var(--spacing-md) auto; /* Centraliza a linha */
+    }
+    .nutritionist-content-text .main-text-block {
+        text-align: center; /* Centraliza o texto principal */
+    }
+    .nutritionist-image-container-svg {
+        width: 100%; /* Imagem SVG ocupa toda a largura disponível */
+        max-width: 650px; /* Limita o tamanho máximo */
+        height: auto; /* Altura automática para manter proporção */
+    }
+    .combined-nutritionist-svg {
+        height: auto; /* Garante que o SVG escale sua altura proporcionalmente */
+    }
+}
+
+@media (max-width: 768px) {
+    .nutritionist-section {
+        padding: var(--spacing-lg) 0;
+    }
+    .nutritionist-wrapper {
+        padding: 0 var(--spacing-sm);
+    }
+    .nutritionist-content-text .section-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+    .nutritionist-content-text .main-text-block {
+        font-size: 16px;
+    }
+    .nutritionist-image-container-svg {
+        max-width: 500px; /* Reduz o max-width para o SVG */
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nutritionist-content-text .main-text-block {
+        font-size: 15px;
+        padding: 0 var(--spacing-xs);
+    }
+    .nutritionist-image-container-svg {
+        max-width: 350px; /* Reduz ainda mais o max-width para o SVG */
+        height: 250px;
+    }
+}
+
+/* public/css/public/nutricionistas.css (Continuando a adicionar estilos) */
+
+/* ==================================== */
+/* Seção: Áreas Essenciais de Atuação */
+/* (Estilos para o design com linha SVG e conteúdo alternado) */
+/* ==================================== */
+.acting-areas-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-beige); /* Fundo branco para esta seção */
+    position: relative; /* Necessário para posicionamento do divisor se sair do fluxo */
+    overflow: hidden; /* Garante que elementos flutuantes não causem overflow */
+}
+
+.acting-areas-wrapper {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.acting-areas-section .section-header-content {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl); /* Mais espaço abaixo do título */
+}
+
+.acting-areas-section .section-title {
+    font-family: var(--font-handwritten);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--dark-brown);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.acting-areas-section .line {
+    width: 80px;
+    height: 2px;
+    background-color: var(--dark-brown);
     margin: 0 auto;
 }
 
-.flex {
+.acting-areas-content {
+    position: relative; /* Para posicionar a linha SVG absolutamente */
+    padding: var(--spacing-lg) 0; /* Adiciona padding para o conteúdo, longe da linha */
+    margin-top: var(--spacing-lg);
+}
+
+.acting-areas-divider-line {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para centralização exata */
+    height: 100%; /* Ocupa a altura total do acting-areas-content */
+    width: 187px; /* Largura do SVG da linha, conforme fornecido */
     display: flex;
+    justify-content: center;
+    align-items: center; /* Se o SVG for menor que o container e precisar ser centralizado verticalmente */
+    z-index: 0; /* Garante que a linha fique por trás dos itens de conteúdo */
 }
 
-h1, h2, h3{
-    font-family: "Cookie", cursive;
-    font-weight: 400;
-    font-style: normal;
-    color: #363a24;
+.decorative-line-svg {
+    height: 100%; /* Ocupa a altura total do container */
+    width: 100%; /* Ocupa a largura total do container */
+    object-fit: fill; /* Garante que o SVG preencha o espaço. Use 'contain' se quiser manter a proporção e aceitar espaços vazios */
 }
 
-h1{
-    font-size: 70px;
-}
-
-h2{
-    font-size: 50px;
-}
-
-h3{
-    font-size: 40px;
-}
-
-p{
-    font-size: 22px;
-    text-align: justify;
-    color: #4f3011;
-}
-
-/* Estilos do Menu */
-.menu {
+.area-item-list {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 50px;
-    background-color: #363a24;
+    flex-direction: column; /* Itens empilhados verticalmente */
+    gap: var(--spacing-xxl); /* Espaçamento entre os pares de imagem/texto */
+    position: relative; /* Para garantir que os itens fiquem acima do SVG da linha */
+    z-index: 1; /* Coloca os itens acima da linha SVG */
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+.area-item {
+    display: flex; /* Flexbox para organizar imagem e texto dentro de cada item */
+    align-items: center; /* Alinha verticalmente imagem e texto */
+    gap: 200px; /* Espaçamento entre imagem e texto */
+    max-width: 1340px; /* Largura máxima para cada item */
+    margin: var(--spacing-md) auto; /* Centraliza cada item */
+    position: relative; /* Para alinhar com a linha central */
+    padding: var(--spacing-md); /* Padding interno para o item */
 }
 
-.logo-img {
-    width: auto;
-    height: 80px;
+.area-item-image {
+    flex-shrink: 0; /* Impede que a imagem encolha */
+    width: 500px; /* Largura da imagem conforme o design */
+    height: 230px; /* Altura da imagem conforme o design */
+    border-radius: 14px; /* Raio da borda da imagem */
+    overflow: hidden; /* Garante que a imagem respeite o border-radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-.menu-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-links li {
-    margin: 0;
-}
-
-.menu-links a {
-    text-decoration: none;
-    color: #e4d39e; 
-    font-size: 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.menu-links a:hover {
-    color: #cba561; 
-}
-
-.menu-links a::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 1px;
-    background: #cba561;
-    transition: width 0.3s ease;
-}
-
-.menu-links a:hover::after {
+.item-image {
     width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre o espaço sem distorcer, cortando se necessário */
 }
 
-main .conteudo{
-    padding: 20px 0px;
+.area-item-text {
+    flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+    max-width: 1000px; /* Largura máxima para o texto */
+    color: var(--dark-gray);
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: justify;
 }
 
-/*ÁREA DE ATUAÇÃO*/
-
-.area-atuacao{
-    padding: 20px 0px;
+.area-item-title {
+    font-family: var(--font-handwritten);
+    font-size: clamp(2.2rem, 3vw, 3.2rem); 
+    font-weight: 400;
+    color: var(--dark-brown);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
 }
 
-.area-atuacao .flex{
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 0px;
+/* Estilos específicos para alinhamento alternado */
+.area-item.item-right {
+    /* Imagem à esquerda, texto à direita (padrão flex-direction: row) */
+    flex-direction: row;
+    /* Adicionar um pequeno offset para se alinhar com a linha central */
+    padding-left: calc(50% - 900px - var(--spacing-lg)); /* Ajuste de alinhamento */
 }
 
-.area-atuacao h3{
-    
-    font-size: 30px;
+.area-item.item-left {
+    /* Texto à esquerda, imagem à direita (flex-direction: row-reverse) */
+    flex-direction: row;
+    text-align: right; /* Alinha o título e o texto à direita */
+    /* Adicionar um pequeno offset para se alinhar com a linha central */
+    padding-right: calc(50% - 900px - var(--spacing-lg)); /* Ajuste de alinhamento */
 }
 
-.area-atuacao p{
-    width: 600px;
-}
-
-.area-atuacao #d{
+.area-item.item-left .area-item-title {
     text-align: right;
 }
 
-.area-atuacao #d .conteudo{
-    padding-right: 50px;
-    border-right: solid 3px #cba561;
-    height: 250px;
+.area-item.item-left .area-item-description {
+    text-align: right; /* Texto justificado, mas alinha o último caractere à direita */
 }
 
-.area-atuacao #e{
-    text-align: left;
+/* ==================================== */
+/* Media Queries para Responsividade    */
+/* ==================================== */
+
+@media (max-width: 1200px) {
+    .acting-areas-wrapper {
+        padding: 0 var(--spacing-md);
+    }
+    .acting-areas-divider-line {
+        width: 150px; /* Reduz a largura do SVG da linha */
+    }
+    .area-item {
+        max-width: 900px; /* Ajusta largura máxima */
+        gap: var(--spacing-md);
+        padding: var(--spacing-sm);
+    }
+    .area-item-image {
+        width: 450px;
+        height: 200px;
+    }
+    .area-item-text {
+        font-size: 18px;
+    }
+    .area-item-title {
+        font-size: clamp(2rem, 2.8vw, 3rem);
+    }
+    .area-item.item-right {
+        padding-left: calc(50% - 350px - var(--spacing-md)); /* Ajusta alinhamento */
+    }
+    .area-item.item-left {
+        padding-right: calc(50% - 350px - var(--spacing-md)); /* Ajusta alinhamento */
+    }
 }
 
-.area-atuacao #e .conteudo{
-    padding-left: 50px;
-    border-left: solid 3px #cba561;
-    height: 250px;
+@media (max-width: 992px) {
+    .acting-areas-section .section-header-content {
+        margin-bottom: var(--spacing-xl);
+    }
+    .acting-areas-content {
+        padding: var(--spacing-md) 0;
+    }
+    .acting-areas-divider-line {
+        display: none; /* Oculta a linha vertical em telas menores */
+    }
+    .area-item-list {
+        gap: var(--spacing-xl); /* Espaçamento ajustado para empilhamento */
+    }
+    .area-item {
+        flex-direction: column !important; /* Força o empilhamento vertical para todos os itens */
+        text-align: center !important; /* Centraliza o texto */
+        padding: var(--spacing-md);
+        max-width: 500px; /* Limita a largura do item empilhado */
+        width: 100%;
+        margin: 0 auto;
+    }
+    .area-item-image {
+        width: 100%; /* Imagem ocupa a largura total do item */
+        height: auto; /* Altura automática */
+        max-height: 250px; /* Limita a altura para não ficar muito grande */
+        margin-bottom: var(--spacing-md); /* Espaçamento abaixo da imagem */
+    }
+    .area-item-text {
+        text-align: center !important; /* Garante que o texto fique centralizado */
+        max-width: 100%;
+    }
+    .area-item-title {
+        text-align: center !important; /* Garante que o título fique centralizado */
+    }
+    .area-item.item-right,
+    .area-item.item-left {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
-.area-atuacao .imagem img{
-    width: 450px;
-    height: 250px;
-    object-fit: cover;
+@media (max-width: 768px) {
+    .acting-areas-section {
+        padding: var(--spacing-lg) 0;
+    }
+    .acting-areas-wrapper {
+        padding: 0 var(--spacing-sm);
+    }
+    .area-item-image {
+        max-height: 200px;
+    }
+    .area-item-text {
+        font-size: 16px;
+    }
+    .area-item-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .area-item-image {
+        max-height: 180px;
+    }
+    .area-item-text {
+        font-size: 15px;
+        padding: 0 var(--spacing-xs);
+    }
 }
 
 
-/* Rodapé */
+/* public/css/public/nutricionistas.css (Adicionar ao arquivo existente ou criar) */
 
-.final {
-    background-color: #363a24;
-    color: #e4d39e;
-    padding: 10px 0px;
-    margin-top: 40px;
-}
-
-.final-conteudo {
+/* ==================================== */
+/* Seção: Nutrição, Sustentabilidade e o Poder dos Alimentos Frescos */
+/* ==================================== */
+.fresh-food-section {
+    padding: var(--spacing-xl) 0;
+    text-align: center; /* Centraliza todo o conteúdo dentro da seção */
     display: flex;
+}
+
+.fresh-food-image{}
+
+.fresh-food-wrapper {
+    max-width: 900px; /* Largura máxima para o conteúdo desta seção, para o texto não ficar muito largo */
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg); /* Padding horizontal para telas menores */
+    margin-bottom: 0px;
+}
+
+/* Reutilizando estilos de cabeçalho já definidos ou definindo se não existirem */
+.fresh-food-section .section-header-content {
+    margin-bottom: var(--spacing-lg); /* Espaçamento abaixo do título */
+    text-align: center; /* Garante que o cabeçalho esteja centralizado */
+}
+
+.fresh-food-section .section-title {
+    font-family: var(--font-handwritten);
+    font-size: clamp(2.5rem, 4vw, 3.5rem); /* Tamanho de fonte responsivo */
+    color: var(--dark-brown); /* Cor do título */
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    font-weight: 200;
+    text-align: center; /* Garante alinhamento central */
+}
+
+.fresh-food-section .line {
+    width: 80px; /* Largura da linha */
+    height: 2px;
+    background-color: var(--dark-brown); /* Cor da linha */
+    margin: 0 auto; /* Centraliza a linha */
+}
+
+.fresh-food-description-text {
+    color: var(--dark-gray); /* Cor do texto */
+    font-family: var(--font-body);
+    font-size: 20px; /* Tamanho da fonte do parágrafo */
+    line-height: 1.6;
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 0 var(--spacing-md); /* Adiciona um pouco de padding lateral para o texto, em telas grandes */
+}
+
+.fresh-food-description-text p {
+    margin-bottom: var(--spacing-md); /* Espaçamento entre os parágrafos */
+}
+
+.fresh-food-description-text p:last-child {
+    margin-bottom: 0; /* Remove margem inferior do último parágrafo */
+}
+
+/* ==================================== */
+/* Media Queries para Responsividade    */
+/* ==================================== */
+
+@media (max-width: 992px) {
+    .fresh-food-wrapper {
+        padding: 0 var(--spacing-md); /* Reduz padding horizontal */
+    }
+    .fresh-food-description-text {
+        font-size: 18px; /* Reduz tamanho da fonte */
+        padding: 0; /* Remove padding lateral em telas menores para usar toda a largura do wrapper */
+    }
+}
+
+@media (max-width: 768px) {
+    .fresh-food-section {
+        padding: var(--spacing-lg) 0; /* Reduz padding da seção */
+    }
+    .fresh-food-description-text {
+        font-size: 16px; /* Reduz ainda mais o tamanho da fonte */
+    }
+    .fresh-food-section .section-title {
+        font-size: clamp(2rem, 5vw, 3rem); /* Ajusta o tamanho do título em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .fresh-food-description-text {
+        font-size: 15px; /* Tamanho de fonte mínimo */
+    }
+}
+
+/* public/css/public/nutricionistas.css (Continuando a adicionar estilos) */
+
+/* ==================================== */
+/* Seção: Educação Alimentar e Fortalecimento da Comunidade */
+/* ==================================== */
+.community-education-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.community-education-wrapper {
+    max-width: 1260px; /* Largura similar ao layout original */
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex; /* Usa flexbox para alinhar a imagem e o texto */
+    gap: var(--spacing-xl); /* Espaçamento entre a imagem e o texto */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    flex-direction: row; /* Imagem à esquerda, texto à direita (padrão) */
+}
+
+.community-education-image-container {
+    flex-shrink: 0; /* Impede que o container da imagem encolha */
+    width: 600px; /* Largura aproximada da área da imagem no design original */
+    height: auto; /* Altura aproximada da área da imagem no design original */
+    display: flex; /* Para centralizar o SVG se ele for menor */
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    border-radius: 20px; /* Arredondamento da imagem conforme o design */
+    overflow: hidden; /* Garante que o SVG respeite o border-radius */
 }
 
-.logotipo {
-    max-width: 50%;
-    text-align: right;
+.combined-community-svg {
+    width: 100%; /* O SVG ocupa 100% do container */
+    height: 100%; /* O SVG ocupa 100% do container */
+    object-fit: cover; /* Cobre o espaço sem distorcer, cortando se necessário */
 }
 
-.logotipo-img {
-    width: auto;
-    height: 60px;
+.community-education-content-text {
+    flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+    max-width: 600px; /* Largura máxima para o bloco de texto */
+    padding-left: var(--spacing-md); /* Adiciona padding à esquerda para o texto */
 }
 
-.final .logotipo p {
-    margin: 20px 0;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: right;
-    width: 500px;
-    color: #e4d39e;
+/* Reutilizando estilos de cabeçalho já definidos ou definindo se não existirem */
+.community-education-content-text .section-header-content {
+    text-align: left; /* Alinha o título e a linha à esquerda */
+    margin-bottom: var(--spacing-lg);
 }
 
-.social-rodape {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    justify-content: right;
+.community-education-content-text .section-title {
+    font-family: var(--font-handwritten);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--dark-brown);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    font-weight: 400;
+    text-align: left; /* Garante alinhamento à esquerda */
 }
 
-.social-icons {
-    display: flex;
-    gap: 15px;
-    font-size: 25px;
-    color: #e4d39e;
-    cursor: pointer;
+.community-education-content-text .line {
+    width: 80px;
+    height: 2px;
+    background-color: var(--dark-brown);
+    margin: 0 auto 0 0; /* Alinha a linha à esquerda e adiciona margem inferior */
 }
 
-.direitos {
-    color: #e4d39e;
-    font-size: 16px;
+.community-education-content-text .main-text-block {
+    color: var(--dark-gray);
+    font-family: var(--font-body);
+    font-size: 20px; /* Tamanho da fonte do parágrafo */
+    line-height: 1.6;
+    text-align: justify; /* Texto justificado */
 }
 
-/* Ajustes para o menu-rodape */
-.menu-rodape {
-    text-align: left;
-    width: 300px;
-    height: 310px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.community-education-content-text .main-text-block p {
+    margin-bottom: var(--spacing-md); /* Espaçamento entre os parágrafos */
 }
 
-.menu-rodape ul {
-    list-style: none;
-    padding: 0; 
+.community-education-content-text .main-text-block p:last-child {
+    margin-bottom: 0;
 }
 
-.menu-rodape ul li {
-    margin-bottom: 20px; 
+/* ==================================== */
+/* Media Queries para Responsividade    */
+/* ==================================== */
+
+@media (max-width: 1200px) {
+    .community-education-wrapper {
+        gap: var(--spacing-lg);
+        padding: 0 var(--spacing-md);
+    }
+    .community-education-image-container {
+        width: 500px; /* Ajusta a largura da imagem */
+        height: 350px; /* Ajusta a altura da imagem */
+    }
+    .community-education-content-text {
+        max-width: 500px; /* Ajusta a largura do texto */
+    }
+    .community-education-content-text .section-title {
+        font-size: clamp(2rem, 3.5vw, 3rem);
+    }
+    .community-education-content-text .main-text-block {
+        font-size: 18px;
+    }
 }
 
-.menu-rodape li a {
-    color: #e4d39e; 
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.5 ease;
+@media (max-width: 992px) {
+    .community-education-wrapper {
+        flex-direction: column; /* Empilha a imagem e o texto verticalmente */
+        align-items: center; /* Centraliza os itens empilhados */
+        gap: var(--spacing-xl);
+        padding: 0 var(--spacing-lg);
+    }
+    .community-education-image-container {
+        width: 100%; /* Imagem ocupa toda a largura disponível */
+        max-width: 600px; /* Limita o tamanho máximo */
+        height: auto; /* Altura automática para manter proporção */
+    }
+    .community-education-content-text {
+        max-width: 100%; /* Permite que o texto ocupe toda a largura disponível */
+        padding-left: 0; /* Remove padding extra */
+        text-align: center; /* Centraliza o texto */
+    }
+    .community-education-content-text .section-header-content {
+        text-align: center; /* Centraliza o cabeçalho */
+    }
+    .community-education-content-text .line {
+        margin: 0 auto; /* Centraliza a linha */
+    }
+    .community-education-content-text .main-text-block {
+        text-align: center; /* Centraliza o texto principal */
+    }
+    .combined-community-svg {
+        height: auto; /* Garante que o SVG escale sua altura proporcionalmente */
+    }
 }
 
-.menu-rodape a:hover, .social-icons i:hover {
-    color: #cba561;
+@media (max-width: 768px) {
+    .community-education-section {
+        padding: var(--spacing-lg) 0;
+    }
+    .community-education-wrapper {
+        padding: 0 var(--spacing-sm);
+    }
+    .community-education-image-container {
+        max-width: 450px;
+        height: auto;
+    }
+    .community-education-content-text .section-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+    .community-education-content-text .main-text-block {
+        font-size: 16px;
+    }
 }
 
-.final p {
-    text-align: center;
+@media (max-width: 480px) {
+    .community-education-image-container {
+        max-width: 300px;
+        height: auto;
+    }
+    .community-education-content-text .main-text-block {
+        font-size: 15px;
+        padding: 0 var(--spacing-xs);
+    }
 }

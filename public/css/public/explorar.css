@@ -1,0 +1,215 @@
+/* ==================================== */
+/* Seção: Conteúdo Explorar (Barra de Pesquisa e Categorias) */
+/* ==================================== */
+.explore-content-section {
+    padding: var(--spacing-xxl) 0; /* Padding superior e inferior para a seção */
+    background-color: var(--light-gray); /* Cor de fundo que você indicou */
+    /* Remove padding lateral aqui, o wrapper interno cuidará disso */
+}
+
+.explore-content-wrapper {
+    max-width: 1200px; /* Largura máxima para o conteúdo da pesquisa e botões */
+    margin: 0 auto; /* Centraliza o wrapper */
+    padding: 0 var(--spacing-lg); /* Padding lateral para responsividade */
+}
+
+.search-and-categories-container {
+    padding-bottom: var(--spacing-xl); /* Espaço abaixo dos botões antes da área de resultados */
+    text-align: center; /* Centraliza o conteúdo, especialmente em telas menores */
+}
+
+.search-bar-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm); /* Espaçamento entre o input e o botão de filtro */
+    max-width: 900px; /* Largura máxima da barra de pesquisa e botão */
+    margin: var(--spacing-lg) auto var(--spacing-lg) auto; /* Centraliza e adiciona espaço abaixo */
+}
+
+.search-input-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    background-color: var(--light-beige); /* Cor de fundo da barra de pesquisa */
+    border-radius: 14px; /* Borda arredondada */
+    padding: var(--spacing-sm) var(--spacing-md);
+    height: 60px; /* Altura da barra */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-icon {
+    width: 20px; /* Tamanho do ícone de pesquisa */
+    height: 20px;
+    color: var(--medium-gray); /* Cor do ícone */
+    margin-right: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.search-input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 14px; /* Tamanho da fonte do placeholder */
+    color: var(--dark-gray);
+}
+
+.search-input::placeholder {
+    color: var(--medium-gray);
+}
+
+.filter-button {
+    flex-shrink: 0;
+    width: 60px; /* Largura do botão de filtro */
+    height: 60px; /* Altura do botão de filtro */
+    background-color: var(--light-beige); /* Cor de fundo */
+    border-radius: 14px; /* Borda arredondada */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.filter-button:hover {
+    background-color: var(--medium-beige); /* Usando uma variável mais escura, se definida */
+}
+
+.filter-icon {
+    width: 17px; /* Tamanho do ícone de filtro */
+    height: 20px;
+    color: var(--dark-green-primary); /* Cor do ícone */
+}
+
+.category-buttons-group {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    flex-wrap: wrap; /* Permite que os botões quebrem linha */
+    gap: var(--spacing-lg); /* Espaçamento entre os botões */
+    max-width: 950px; /* Largura máxima para os botões */
+    margin: 0 auto; /* Centraliza o grupo de botões */
+}
+
+.category-button {
+    min-width: 140px; /* Largura mínima para os botões */
+    height: 60px; /* Altura dos botões */
+    background-color: var(--golden-light); /* Cor de fundo padrão (inativo) */
+    border-radius: 14px; /* Borda arredondada */
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 14px; /* Tamanho da fonte */
+    color: var(--dark-brown); /* Cor do texto padrão (inativo) */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 0 var(--spacing-md); /* Padding interno para o texto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.category-button:hover {
+    background-color: var(--golden-brown); /* Cor no hover, pode ser o mesmo do ativo ou um tom ligeiramente diferente */
+    color: var(--dark-green-secondary); /* Cor do texto no hover */
+}
+
+.category-button.active {
+    background-color: var(--golden-dark); /* Cor mais escura quando ativo */
+    color: #37210C; /* Cor do texto quando ativo */
+}
+
+/* Área de resultados */
+.explore-results-area {
+    padding: var(--spacing-lg); /* Padding interno para o conteúdo dos resultados */
+    min-height: 300px; /* Altura mínima para a área de resultados */
+    display: flex; /* Para centralizar o placeholder ou organizar os resultados */
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-body);
+    color: var(--medium-gray);
+    font-size: 18px;
+    text-align: center;
+    margin-top: var(--spacing-lg); /* Espaço acima da área de resultados */
+}
+
+/* ==================================== */
+/* Media Queries para Responsividade    */
+/* ==================================== */
+
+@media (max-width: 992px) {
+    .explore-content-wrapper {
+        padding: 0 var(--spacing-md);
+    }
+    .search-bar-group {
+        flex-direction: column; /* Empilha a barra de pesquisa e o botão de filtro */
+        gap: var(--spacing-sm);
+    }
+    .search-input-wrapper {
+        width: 100%;
+        max-width: 500px; /* Limita a largura do input empilhado */
+    }
+    .filter-button {
+        width: 100%;
+        max-width: 500px; /* O botão de filtro também ocupa a largura */
+    }
+    .category-buttons-group {
+        gap: var(--spacing-sm);
+    }
+    .category-button {
+        min-width: 100px; /* Permite encolher um pouco mais */
+        height: 50px;
+        font-size: 13px;
+        padding: 0 var(--spacing-sm);
+    }
+    .explore-results-area {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .explore-content-section {
+        padding: var(--spacing-lg) 0;
+    }
+    .explore-content-wrapper {
+        padding: 0 var(--spacing-sm);
+    }
+    .search-input-wrapper,
+    .filter-button {
+        height: 45px;
+        border-radius: 10px;
+    }
+    .search-icon, .filter-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .search-input, .category-button {
+        font-size: 12px;
+    }
+    .category-button {
+        width: calc(50% - var(--spacing-xs)); /* Duas colunas em telas menores */
+        min-width: unset; /* Remove a largura mínima para flexibilidade total */
+        height: 45px;
+    }
+    .explore-results-area {
+        min-height: 200px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-buttons-group {
+        flex-direction: column; /* Botões empilhados em telas muito pequenas */
+        gap: var(--spacing-xs);
+    }
+    .category-button {
+        width: 100%; /* Ocupa a largura total */
+        height: 40px;
+        font-size: 11px;
+    }
+    .explore-results-area {
+        min-height: 150px;
+        font-size: 14px;
+        padding: var(--spacing-md);
+    }
+}

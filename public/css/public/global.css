@@ -5,16 +5,19 @@
     --primary-green: #363A24; /* Verde Escuro Principal */
     --light-background: #F8F8F8; /* Branco/Fundo Claro principal */
     --dark-brown: #4F3011; /* Marrom Escuro */
+    --golden-brown: #d5c295;
     --golden-dark: #CBA561; /* Dourado Escuro (Links, detalhes) */
     --golden-light: #E4D39E; /* Dourado Claro (Degradês, backgrounds leves) */
     --black: #000000; /* Preto Puro */
     --dark-gray: #2E2E2E; /* Cinza Escuro (Textos secundários) */
     --light-beige: #E8E5DA; /* Bege claro (para journey section) */
+    --medium-beige: #D9D5C9; /* Bege medio (para cards e explore section) */
     --soft-yellow-beige: #F8F5EC; /* Amarelo-bege suave (para cards e explore section) */
 
     /* Variáveis Derivadas ou de Apoio */
     --text-color-light: var(--light-background); /* Texto em fundo escuro (ex: navbar) */
     --text-color-dark: var(--dark-gray); /* Texto padrão em fundo claro */
+    --white: #ffffff;
 
     /* Fontes */
     --font-body: 'Almarai', sans-serif;
@@ -25,7 +28,7 @@
     /* Espaçamentos Comuns */
     --spacing-sm: 10px;
     --spacing-md: 20px;
-    --spacing-lg: 40px;
+    --spacing-lg: 60px;
     --spacing-xl: 100px;
 }
 

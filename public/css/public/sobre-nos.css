@@ -1,184 +1,710 @@
-/* Estilos Gerais */
-body {
-    margin: 0;
-    font-family: "Arima", system-ui;
-    font-optical-sizing: auto;
-    font-style: normal;
-    background-color: #f8f5ec;
+/* public/css/public/sobre-nos.css */
+.what-is-connecta-section {
+    padding: var(--spacing-xl) 0; /* Espaçamento vertical da seção */
+    background-color: var(--light-background); /* Cor de fundo da seção */
+    position: relative; /* Essencial para posicionamento absoluto/relativo de elementos internos */
+    overflow: hidden; /* Garante que elementos fora do container não causem scroll indesejado */
 }
 
-.margem {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.flex {
+.text-image{
     display: flex;
+    flex-direction: row;
 }
 
-h1, h2, h3{
-    font-family: "Cookie", cursive;
+.what-is-connecta-wrapper {
+    max-width: 1340px; /* Largura máxima do conteúdo, alinhando com outras seções */
+    margin: 0 auto; /* Centraliza o wrapper */
+    padding: 0 var(--spacing-lg); /* Padding horizontal para evitar que o conteúdo encoste nas bordas */
+}
+
+/* Container para o título e a linha */
+.section-header-content {
+    text-align: left; /* Alinha o conteúdo à esquerda */
+    margin-bottom: var(--spacing-xl); /* Espaço abaixo do título e linha, antes do texto principal */
+}
+
+.what-is-connecta-section .section-title {
+    font-family: var(--font-handwritten); /* Fonte do título */
+    font-size: clamp(2.5rem, 4vw, 3.5rem); /* Tamanho de fonte responsivo */
+    color: var(--dark-brown); /* Cor do título */
+    margin-bottom: var(--spacing-md); /* Espaço entre o título e a linha */
+    line-height: 1.2;
+    text-align: left; /* Garante alinhamento à esquerda */
     font-weight: 400;
-    font-style: normal;
 }
 
-h1{
-    font-size: 70px;
+.what-is-connecta-section .line {
+    width: 80px; /* Largura da linha abaixo do título */
+    height: 2px; /* Espessura da linha */
+    background-color: var(--dark-brown); /* Cor da linha */
+    margin-left: 0; /* Alinha a linha à esquerda com o título */
+    margin-bottom: var(--spacing-md); /* Espaço abaixo da linha */
 }
 
-h2{
-    font-size: 50px;
+/* Área principal do conteúdo (texto e SVGs) */
+.main-content-area {
+    display: grid;
+    /* Define 3 colunas: uma pequena para SVG esquerdo, uma maior para o texto, uma para SVG direito */
+    grid-template-columns: 0.5fr 2fr 1fr;
+    gap: var(--spacing-xl); /* Espaçamento entre as colunas */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    margin-bottom: var(--spacing-xl); /* Espaço abaixo desta área */
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo esteja acima de outros elementos em camadas */
 }
 
-h3{
-    font-size: 40px;
+.text-block {
+    /* Faz o bloco de texto começar na segunda coluna e se estender por duas colunas (até o final do grid) */
+    grid-column: 2 / span 2;
+    text-align: right; /* Alinha o texto à direita */
+    color: var(--dark-gray); /* Cor do texto */
+    font-family: var(--font-body); /* Fonte do texto */
+    font-size: 1.1rem; /* Tamanho da fonte */
 }
 
-p{
-    font-size: 22px;
-    text-align: justify;
+.description-text {
+    line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+    margin-bottom: var(--spacing-md); /* Espaço entre parágrafos */
 }
 
-/* Estilos do Menu */
-.menu {
+.vegetable-image-left {
+    grid-column: 1; /* Posiciona a imagem de tomate na primeira coluna */
     display: flex;
+    justify-content: flex-start; /* Alinha a imagem à esquerda na sua coluna */
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 50px;
-    background-color: #363a24;
 }
 
-.logo {
+.vegetable-image-right {
+    grid-column: 3; /* Posiciona a imagem de alface na terceira coluna */
     display: flex;
+    justify-content: flex-end; /* Alinha a imagem à direita na sua coluna */
     align-items: center;
 }
 
-.logo-img {
-    width: auto;
-    height: 80px;
-}
-
-.menu-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-links li {
-    margin: 0;
-}
-
-.menu-links a {
-    text-decoration: none;
-    color: #e4d39e; 
-    font-size: 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.menu-links a:hover {
-    color: #cba561; 
-}
-
-.menu-links a::after {
-    content: "";
+.svg-decorative {
+    max-width: 150px; /* Largura máxima das imagens SVG */
+    height: auto; /* Mantém a proporção da imagem */
     display: block;
-    width: 0;
-    height: 1px;
-    background: #cba561;
-    transition: width 0.3s ease;
 }
 
-.menu-links a:hover::after {
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 992px) {
+    .main-content-area {
+        grid-template-columns: 1fr; /* Em telas menores, o grid se torna uma única coluna */
+        gap: var(--spacing-md);
+    }
+    .text-block {
+        grid-column: 1; /* O texto ocupa a única coluna disponível */
+        text-align: center; /* Centraliza o texto em telas menores */
+    }
+    .vegetable-image-left,
+    .vegetable-image-right {
+        display: none; /* Oculta as SVGs decorativas em telas menores para simplificar o layout */
+    }
+    .section-header-content {
+        text-align: center; /* Centraliza o título e a linha em telas menores */
+    }
+    .what-is-connecta-section .line {
+        margin: 0 auto var(--spacing-md); /* Centraliza a linha também em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .what-is-connecta-section .section-title {
+        font-size: clamp(2rem, 6vw, 3rem); /* Ajuste de tamanho de fonte para telas menores */
+    }
+    .description-text {
+        font-size: 1rem; /* Ajuste de tamanho de fonte para telas menores */
+    }
+}
+
+/* --- Cards de Missão, Visão, Valores (Ajustados para o novo design) --- */
+.cards-container {
+    display: grid;
+    /* 3 colunas, cada uma com largura mínima de 300px, adaptando-se */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-sm); /* Espaçamento entre os cards, ajuste conforme o design */
+    margin-top: var(--spacing-xl); /* Espaçamento entre a área de texto e os cards */
+    justify-content: center; /* Centraliza o grid de cards */
+    align-items: flex-start; /* Alinha os cards ao topo de suas células no grid */
+    margin: 0 auto;
+    max-width: 1340px;
+}
+
+.info-card {
+    width: 364.83px; /* Largura exata do card */
+    height: 396.59px; /* Altura exata do card */
+    background: var(--light-beige); /* Cor de fundo do card */
+    border-radius: 18.38px; /* Raio da borda */
+    position: relative; /* Para posicionar o ícone absolutamente */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza conteúdo horizontalmente */
+    text-align: center; /* Alinha texto ao centro */
+    padding: var(--spacing-lg) var(--spacing-md); /* Padding interno, ajuste se necessário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave para destacar o card */
+    margin-top: 23px; /* Desloca o card para baixo para o ícone circular aparecer acima dele */
+}
+
+
+
+.card-icon-bg i {
+    font-size: 45px; /* Tamanho do ícone, ajuste para ficar proporcional ao círculo */
+    color: var(--primary-green); /* Cor do ícone, a imagem não especifica, mas branco ou dourado claro combinam */
+}
+
+.info-card .card-title {
+    color: var(--primary-green); /* Cor do título do card */
+    font-size: 20px; /* Tamanho da fonte do título */
+    font-family: var(--font-body); /* Conforme a imagem */
+    font-weight: 400; /* Conforme a imagem */
+    margin-top: 20px; /* Espaçamento do título para o ícone (aproximado) */
+    margin-bottom: var(--spacing-sm);
+}
+
+.info-card .card-description {
+    color: var(--dark-gray); /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte do texto */
+    font-family: var(--font-body); /* Conforme a imagem */
+    font-weight: 400; /* Conforme a imagem */
+    text-align: justify; /* Alinha o texto justificado dentro do card */
+    width: 200px; /* Largura específica do bloco de texto dentro do card */
+    line-height: 1.5;
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 992px) {
+    /* Mantenha as media queries anteriores para o título/texto/SVGs */
+    .main-content-area {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    .text-block {
+        grid-column: 1;
+        text-align: center;
+    }
+    .vegetable-image-left,
+    .vegetable-image-right {
+        display: none;
+    }
+    .section-header-content {
+        text-align: center;
+    }
+    .what-is-connecta-section .line {
+        margin: 0 auto var(--spacing-md);
+    }
+
+    /* Cards em telas menores */
+    .cards-container {
+        grid-template-columns: 1fr; /* Cards empilhados em uma única coluna */
+        gap: var(--spacing-lg); /* Espaçamento entre cards empilhados */
+    }
+    .info-card {
+        width: 90%; /* Ajusta a largura do card para ser responsiva */
+        max-width: 365px; /* Mantém uma largura máxima para não esticar muito */
+        height: auto; /* Permite que a altura se ajuste ao conteúdo */
+        margin: 50px auto 0 auto; /* Centraliza o card e mantém o espaçamento superior */
+        padding-bottom: var(--spacing-lg); /* Garante padding na parte de baixo */
+    }
+    .info-card .card-description {
+        width: 80%; /* Ajusta a largura do texto interno para não ser fixa em 200px */
+        max-width: 280px; /* Limita a largura do texto interno */
+        margin: 0 auto; /* Centraliza o texto dentro do card */
+    }
+    .card-icon-bg {
+        top: -23.5px; /* Mantém o ícone centralizado no topo */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .what-is-connecta-section .section-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    .description-text {
+        font-size: 1rem;
+    }
+    .info-card .card-title {
+        font-size: 1.3rem; /* Ajuste para telas menores */
+    }
+    .info-card .card-description {
+        font-size: 0.95rem; /* Ajuste para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .card-icon-bg {
+        width: 40px;
+        height: 40px;
+        top: -20px;
+    }
+    .card-icon-bg i {
+        font-size: 1.5rem;
+    }
+    .info-card .card-title {
+        margin-top: 80px; /* Ajusta o espaçamento superior do título */
+        font-size: 1.1rem;
+    }
+    .info-card .card-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* --- Nova Seção: Do Campo à Mesa --- */
+.farm-to-table-banner {
     width: 100%;
-}
-
-/* Rodapé */
-
-.final {
-    background-color: #363a24;
-    color: #e4d39e;
-    padding: 10px 0px;
-}
-
-.final-conteudo {
+    height: 400px; /* Altura fixa conforme o design */
+    position: relative;
+    overflow: hidden; /* Garante que a imagem de fundo não vaze */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    text-align: center;
+    background-image: url('../../img/public/do-campo-a-mesa-bg.svg'); /* Caminho para o SVG de fundo */
+    background-size: cover; /* Cobre todo o elemento */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    margin-top: var(--spacing-xl); /* Adiciona espaço acima da seção */
 }
 
-.logotipo {
-    max-width: 50%;
-    text-align: right;
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Garante que o overlay esteja acima da imagem de fundo */
 }
 
-.logotipo-img {
-    width: auto;
-    height: 60px;
+.banner-title {
+    position: relative; /* Para que o título fique acima do overlay */
+    z-index: 2;
+    color: var(--white); /* Cor do texto branco */
+    font-size: clamp(1.5rem, 3.5vw, 3.5rem); /* Tamanho responsivo para o título */
+    font-family: var(--font-handwritten); /* Fonte Allison */
+    font-weight: 400;
+    text-align: center;
+    padding: 0 var(--spacing-lg); /* Padding horizontal para evitar que o texto encoste nas bordas em telas menores */
+    max-width: 900px; /* Limita a largura do texto para melhor leitura */
 }
 
-.final .logotipo p {
-    margin: 20px 0;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: right;
-    width: 500px;
+.banner-text{
+    width: 80%;
+    text-align: center;
 }
 
-.social-rodape {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    justify-content: right;
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 992px) {
+    /* Mantém as media queries anteriores para outras seções */
+    .main-content-area {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    .text-block {
+        grid-column: 1;
+        text-align: center;
+    }
+    .vegetable-image-left,
+    .vegetable-image-right {
+        display: none;
+    }
+    .section-header-content {
+        text-align: center;
+    }
+    .what-is-connecta-section .line {
+        margin: 0 auto var(--spacing-md);
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    .info-card {
+        width: 90%;
+        max-width: 365px;
+        height: auto;
+        margin: 50px auto 0 auto;
+        padding-bottom: var(--spacing-lg);
+    }
+    .info-card .card-description {
+        width: 80%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    .card-icon-bg {
+        top: -23.5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Banner em telas menores */
+    .farm-to-table-banner {
+        height: 300px; /* Altura ajustada para telas menores */
+    }
+    .banner-title {
+        font-size: clamp(1.8rem, 5vw, 3rem); /* Ajuste de tamanho da fonte do título */
+    }
 }
 
-.social-icons {
-    display: flex;
-    gap: 15px;
-    font-size: 25px;
-    color: #e4d39e;
-    cursor: pointer;
+@media (max-width: 768px) {
+    .what-is-connecta-section .section-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    .description-text {
+        font-size: 1rem;
+    }
+    .info-card .card-title {
+        font-size: 1.3rem;
+    }
+    .info-card .card-description {
+        font-size: 0.95rem;
+    }
+    .farm-to-table-banner {
+        height: 250px; /* Altura ainda menor */
+    }
+    .banner-title {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
 }
 
-.direitos {
-    color: #e4d39e;
-    font-size: 16px;
+@media (max-width: 480px) {
+    .card-icon-bg {
+        width: 40px;
+        height: 40px;
+        top: -20px;
+    }
+    .card-icon-bg i {
+        font-size: 1.5rem;
+    }
+    .info-card .card-title {
+        margin-top: 80px;
+        font-size: 1.1rem;
+    }
+    .info-card .card-description {
+        font-size: 0.85rem;
+    }
+    .farm-to-table-banner {
+        height: 200px; /* Altura mínima para o banner */
+    }
+    .banner-title {
+        font-size: clamp(1.2rem, 7vw, 2rem);
+    }
 }
 
-/* Ajustes para o menu-rodape */
-.menu-rodape {
-    text-align: left;
-    width: 300px;
-    height: 310px; 
+/* --- Nova Seção: Nossa História --- */
+.our-history-section {
+    padding: var(--spacing-xl) 0; /* Espaçamento vertical */
+    background-color: var(--light-background); /* Mesma cor de fundo da seção "O que é" */
+}
+
+.our-history-wrapper {
+    max-width: 1340px; /* Alinha com o wrapper das outras seções */
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    text-align: center; /* Centraliza o título e a linha */
+}
+
+.history-content {
+    column-count: 2; /* Divide o texto em duas colunas */
+    column-gap: var(--spacing-xl); /* Espaçamento entre as colunas */
+    text-align: justify; /* Justifica o texto dentro das colunas */
+    color: var(--dark-gray);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.history-text {
+    margin-bottom: var(--spacing-md); /* Espaçamento entre parágrafos */
+    /* Break inside avoid for paragraphs - useful for column layouts */
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 992px) {
+    /* Mantenha as media queries anteriores para outras seções */
+    .main-content-area {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    .text-block {
+        grid-column: 1;
+        text-align: center;
+    }
+    .vegetable-image-left,
+    .vegetable-image-right {
+        display: none;
+    }
+    .section-header-content {
+        text-align: center;
+    }
+    .what-is-connecta-section .line {
+        margin: 0 auto var(--spacing-md);
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    .info-card {
+        width: 90%;
+        max-width: 365px;
+        height: auto;
+        margin: 50px auto 0 auto;
+        padding-bottom: var(--spacing-lg);
+    }
+    .info-card .card-description {
+        width: 80%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    .card-icon-bg {
+        top: -23.5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .farm-to-table-banner {
+        height: 300px;
+    }
+    .banner-title {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+    }
+
+    /* Nossa História em telas menores */
+    .history-content {
+        column-count: 1; /* Uma única coluna em telas menores */
+        text-align: left; /* Alinha o texto à esquerda em uma única coluna */
+    }
+    .our-history-section .section-title {
+        font-size: clamp(2rem, 6vw, 3rem); /* Ajuste de tamanho do título */
+    }
+}
+
+@media (max-width: 768px) {
+    .what-is-connecta-section .section-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    .description-text {
+        font-size: 1rem;
+    }
+    .info-card .card-title {
+        font-size: 1.3rem;
+    }
+    .info-card .card-description {
+        font-size: 0.95rem;
+    }
+    .farm-to-table-banner {
+        height: 250px;
+    }
+    .banner-title {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+    .our-history-section .section-title {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+    }
+    .history-content {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-icon-bg {
+        width: 40px;
+        height: 40px;
+        top: -20px;
+    }
+    .card-icon-bg i {
+        font-size: 1.5rem;
+    }
+    .info-card .card-title {
+        margin-top: 80px;
+        font-size: 1.1rem;
+    }
+    .info-card .card-description {
+        font-size: 0.85rem;
+    }
+    .farm-to-table-banner {
+        height: 200px;
+    }
+    .banner-title {
+        font-size: clamp(1.2rem, 7vw, 2rem);
+    }
+    .our-history-section .section-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+    }
+    .history-content {
+        font-size: 0.9rem;
+    }
+}
+
+/* --- Nova Seção: Nosso Impacto --- */
+.our-impact-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-background); /* Fundo similar aos cards Missão, Visão, Valores */
+}
+
+.our-impact-wrapper {
+    max-width: 1320px; /* Largura do container conforme seu design */
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    text-align: center; /* Centraliza o título e a linha */
+}
+
+.our-impact-section .section-title {
+    font-family: var(--font-handwritten);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--dark-brown); /* Cor do título */
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    text-align: center;
+}
+
+.our-impact-section .line {
+    width: 80px;
+    height: 3px;
+    background-color: var(--dark-brown); /* Cor da linha */
+    margin: 0 auto var(--spacing-xl); /* Centraliza a linha e dá espaçamento */
+}
+
+.impact-cards-container {
+    display: grid;
+    /* Três colunas com largura mínima de 300px, flexíveis */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl); /* Espaçamento entre os cards */
+    justify-items: center; /* Centraliza os cards no grid */
+    align-items: start; /* Alinha os cards ao topo de suas células */
+    padding-top: var(--spacing-xl); /* Espaçamento entre a linha e os cards */
+}
+
+.impact-card {
+    background: var(--light-background); /* Fundo do card */
+    /* width: 400px; /* Largura específica do seu design, mas faremos responsivo */
+    min-height: 380px; /* Altura mínima para cards de conteúdo variável */
+    position: relative;
+    padding: 100px var(--spacing-md) var(--spacing-lg); /* Ajuste o padding-top para o ícone */
+    border-radius: 18px; /* Arredondamento da borda */
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center; /* Alinha o texto ao centro */
+    max-width: 400px; /* Limita a largura do card em telas maiores */
+}
+
+.impact-icon-circle {
+    width: 120px; /* Largura do círculo do ícone */
+    height: 120px; /* Altura do círculo do ícone */
+    background: var(--light-beige); /* Cor de fundo do círculo */
+    border-radius: 50%; /* Torna o elemento um círculo */
+    position: absolute;
+    top: -60px; /* Metade da altura para posicionar na borda superior */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o círculo horizontalmente */
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.menu-rodape ul {
-    list-style: none;
-    padding: 0; 
+.impact-icon-circle i {
+    font-size: 48px; /* Tamanho do ícone */
+    color: var(--golden-dark); /* Cor do ícone */
 }
 
-.menu-rodape ul li {
-    margin-bottom: 20px; 
+.impact-card-title {
+    color: var(--primary-green); /* Cor do título do card */
+    font-size: 20px; /* Tamanho da fonte do título */
+    font-family: var(--font-body);
+    font-weight: 400; /* Peso da fonte */
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-sm); /* Espaço entre o círculo e o título */
+    width: 80%; /* Ajusta a largura do título */
 }
 
-.menu-rodape li a {
-    color: #e4d39e; 
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.5 ease;
+.impact-card-description {
+    color: var(--dark-gray); /* Cor do texto */
+    font-size: 20px; /* Tamanho da fonte do texto */
+    font-family: var(--font-body);
+    font-weight: 400; /* Peso da fonte */
+    text-align: center; /* Alinha o texto ao centro */
+    line-height: 1.5;
+    padding: 0 var(--spacing-md); /* Padding lateral para o texto não encostar nas bordas */
+    width: 120%; /* Ajusta a largura do texto */
 }
 
-.menu-rodape a:hover, .social-icons i:hover {
-    color: #cba561;
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 992px) {
+    /* Mantenha as media queries anteriores para outras seções */
+    /* ... (código anterior) ... */
+
+    /* Nosso Impacto em telas menores */
+    .impact-cards-container {
+        grid-template-columns: 1fr; /* Cards empilhados em uma única coluna */
+        gap: var(--spacing-xl);
+    }
+    .impact-card {
+        width: 90%; /* Ajusta a largura do card para ser responsiva */
+        max-width: 400px; /* Mantém uma largura máxima */
+        height: auto; /* Permite que a altura se ajuste ao conteúdo */
+        margin: 60px auto 0 auto; /* Ajusta o margin-top para o ícone */
+    }
+    .impact-icon-circle {
+        top: -60px; /* Mantém o posicionamento relativo à nova margem */
+    }
+    .impact-card-title,
+    .impact-card-description {
+        width: 90%; /* Ajusta a largura do texto interno */
+    }
 }
 
-.final p {
-    text-align: center;
+@media (max-width: 768px) {
+    /* Mantém as media queries anteriores */
+    /* ... (código anterior) ... */
+
+    .our-impact-section .section-title {
+        font-size: clamp(2rem, 6vw, 3rem); /* Ajuste de tamanho do título */
+    }
+    .impact-icon-circle {
+        width: 100px; /* Reduz o tamanho do círculo */
+        height: 100px;
+        top: -50px;
+    }
+    .impact-icon-circle i {
+        font-size: 40px; /* Reduz o tamanho do ícone */
+    }
+    .impact-card-title {
+        font-size: 1.1rem; /* Reduz o tamanho do título do card */
+    }
+    .impact-card-description {
+        font-size: 0.95rem; /* Reduz o tamanho do texto do card */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mantém as media queries anteriores */
+    /* ... (código anterior) ... */
+
+    .our-impact-section .section-title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+    .impact-icon-circle {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+    }
+    .impact-icon-circle i {
+        font-size: 32px;
+    }
+    .impact-card-title {
+        font-size: 1rem;
+    }
+    .impact-card-description {
+        font-size: 0.9rem;
+    }
+    .impact-card {
+        padding-top: 70px; /* Ajusta o padding para compensar o ícone menor */
+    }
 }

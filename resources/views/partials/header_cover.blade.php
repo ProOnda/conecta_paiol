@@ -25,9 +25,9 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a href="{{ route('inicio') }}" class="nav-link">INICIO</a></li>
                     <li class="nav-item"><a href="{{ route('sobre-nos') }}" class="nav-link">SOBRE NÓS</a></li>
-                    <li class="nav-item"><a href="{{ route('explorar.index') }}" class="nav-link">EXPLORAR</a></li>
                     <li class="nav-item"><a href="{{ route('agricultores.index') }}" class="nav-link">AGRICULTORES</a></li>
                     <li class="nav-item"><a href="{{ route('nutricionistas.index') }}" class="nav-link">NUTRICIONISTAS</a></li>
+                    <li class="nav-item"><a href="{{ route('explorar.index') }}" class="nav-link">EXPLORAR</a></li>
                     <li class="nav-item"><a href="{{ route('contato') }}" class="nav-link">CONTATO</a></li>
                     <li class="nav-item nav-item-login"><a href="{{ route('login') }}" class="nav-link">LOGIN</a></li>
                 </ul>

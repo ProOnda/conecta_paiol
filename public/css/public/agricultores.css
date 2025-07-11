@@ -1,364 +1,450 @@
-/* Estilos Gerais */
-body {
-    margin: 0;
-    font-family: "Arima", system-ui;
-    font-optical-sizing: auto;
-    font-style: normal;
-    background-color: #f8f5ec;
+/* public/css/public/agricultores.css */
+
+/* ==================================== */
+/* 1. Seção: O Que É e Por Que Importa (Agricultura Familiar) */
+/* (Baseado nos estilos fornecidos para .what-is-family-agriculture-section) */
+/* ==================================== */
+.what-is-family-agriculture-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-background);
+    position: relative;
+    overflow: hidden;
 }
 
-.margem {
-    max-width: 1200px;
+.what-is-family-agriculture-wrapper {
+    max-width: 1340px; /* Alinha com outras seções */
     margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    text-align: center; /* Centraliza o cabeçalho desta seção */
 }
 
-.flex {
-    display: flex;
+.what-is-family-agriculture-section .section-header-content {
+    text-align: center; /* Centraliza o título e a linha */
+    margin-bottom: var(--spacing-xl);
 }
 
-h1, h2, h3{
-    font-family: "Cookie", cursive;
+.what-is-family-agriculture-section .section-title {
+    font-family: var(--font-handwritten);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--dark-brown);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
     font-weight: 400;
-    font-style: normal;
-    color: #363a24;
+    text-align: center; /* Garante alinhamento ao centro */
 }
 
-h1{
-    font-size: 70px;
+.what-is-family-agriculture-section .line {
+    width: 80px;
+    height: 2px;
+    background-color: var(--dark-brown);
+    margin: 0 auto var(--spacing-xl); /* Centraliza a linha */
 }
 
-h2{
-    font-size: 50px;
+.main-content-area-family-agriculture {
+    max-width: 800px; /* Largura do bloco de texto conforme o design */
+    margin: 0 auto var(--spacing-xl) auto; /* Centraliza e adiciona espaço abaixo */
+    color: var(--dark-gray);
+    font-family: var(--font-body);
+    font-size: 20px; /* Tamanho da fonte conforme o design */
+    line-height: 1.6;
+    text-align: center; /* Alinha o texto ao centro */
 }
 
-h3{
-    font-size: 40px;
+.text-block-family-agriculture .description-text {
+    margin-bottom: var(--spacing-lg); /* Espaçamento entre parágrafos */
 }
 
-p{
-    font-size: 22px;
-    text-align: justify;
-    color: #4f3011;
+/* Banner de fundo para a imagem do agricultor */
+.family-agriculture-banner {
+    width: calc(100% - (var(--spacing-lg) * 2)); /* Largura total menos padding */
+    max-width: 900px; /* Largura do banner conforme o design */
+    height: 300px; /* Altura fixa do banner */
+    margin: 0 auto; /* Centraliza o banner */
+    overflow: hidden;
+    border-radius: 14px; /* Raio da borda da imagem */
+    background-image: url('../../img/public/agricultor-banner.svg'); /* Supondo que o SVG esteja aqui */
+    background-size: cover; /* Cobre todo o elemento */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
 }
 
-/* Estilos do Menu */
-.menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 50px;
-    background-color: #363a24;
+
+/* ==================================== */
+/* 2. Seção: Por que a Agricultura Familiar é Vital? */
+/* (Baseado nos estilos fornecidos) */
+/* ==================================== */
+.why-family-agriculture-vital-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-beige); /* Fundo branco conforme a imagem */
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    width: auto;
-    height: 80px;
-}
-
-.menu-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-links li {
-    margin: 0;
-}
-
-.menu-links a {
-    text-decoration: none;
-    color: #e4d39e; 
-    font-size: 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.menu-links a:hover {
-    color: #cba561; 
-}
-
-.menu-links a::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 1px;
-    background: #cba561;
-    transition: width 0.3s ease;
-}
-
-.menu-links a:hover::after {
-    width: 100%;
-}
-
-/* Início */
-
-.conteudo {
-    max-width: 1200px;
+.why-family-agriculture-vital-wrapper {
+    max-width: 1340px; /* Alinha com outras seções */
     margin: 0 auto;
-    padding: 10px 0px;
+    padding: 0 var(--spacing-lg);
+    text-align: left; /* Título alinhado à esquerda na imagem */
 }
 
-.conteudo h2 {
-    margin: 30px 0px;
+.why-family-agriculture-vital-section .section-header-content {
+    text-align: left; /* Alinha o título e a linha à esquerda */
+    margin-bottom: var(--spacing-xl);
+    padding-left: var(--spacing-md); /* Pequeno ajuste de padding para alinhar com a borda do título */
 }
 
-.conteudo1 {
-    margin-bottom: 19px;
+.why-family-agriculture-vital-section .section-title {
+    font-family: var(--font-handwritten);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--dark-brown);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    font-weight: 400;
+    text-align: left;
+    position: relative; /* Para a linha decorativa se necessário */
+    padding-left: 20px; /* Adicionado para o espaçamento da borda esquerda */
+    border-left: 2px solid var(--dark-brown); /* Adicionado para a linha vertical à esquerda do título */
 }
 
-.visao {
+.vital-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+    justify-items: center;
+    align-items: start;
+    margin-top: var(--spacing-xl);
+}
+
+.vital-card {
+    background: #F8F5EC; /* Cor de fundo exata da imagem */
+    border-radius: 20px; /* Raio da borda exato da imagem */
+    padding: 100px var(--spacing-lg) var(--spacing-lg);
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    gap: 50px;
-    margin: 50px 0px;
+    text-align: center;
+    box-shadow: none; /* Remove a sombra, a imagem não a mostra */
+    border: none; /* Remove qualquer borda padrão */
+    max-width: 421.25px; /* Largura máxima conforme o design da imagem fornecida */
+    min-height: 300.86px; /* Altura mínima conforme o design da imagem fornecida */
+    box-sizing: border-box;
 }
 
-.visao p {
-    line-height: 1.8;
-    margin-top: 0; 
+.vital-icon-circle {
+    width: 90px;
+    height: 90px;
+    background: transparent; /* Fundo transparente para o círculo */
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Remover border e box-shadow se não quiser contorno no círculo transparente */
+    /* border: 1px solid rgba(0, 0, 0, 0.1); */
 }
 
-.visao img {
-    width: 500px;
-    height: auto;
-    
+.vital-icon-circle i {
+    font-size: 48px;
+    background: linear-gradient(90deg, #363A24 0%, #4F3011 50%, #CBA561 75%, #E4D39E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+}
+
+.vital-card-title {
+    color: #2E2E2E; /* Cor do texto exata da imagem */
+    font-size: 20px; /* Tamanho da fonte exato da imagem */
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
+    margin-top: 50px;
+    padding: 0 var(--spacing-xs);
+    max-width: 300px; /* Largura exata para o texto do título da imagem */
+}
+
+/* ==================================== */
+/* 3. Seção: Desafios e Soluções: O Papel do Conecta Paiol */
+/* (Baseado nos estilos fornecidos, usando SVG combinado) */
+/* ==================================== */
+.challenges-solutions-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-background); /* Cor de fundo da seção */
+}
+
+.challenges-solutions-wrapper {
+    max-width: 1340px; /* Largura máxima do conteúdo */
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex; /* Usa flexbox para alinhar a galeria de imagens e o conteúdo */
+    gap: var(--spacing-lg); /* Espaçamento entre a coluna de imagens e o texto */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+}
+
+.challenges-image-gallery-svg {
+    flex-shrink: 0;
+    width: 660px; /* Aproximadamente a largura combinada das imagens originais */
+    height: 520px; /* Aproximadamente a altura da imagem principal */
+    display: flex; /* Para centralizar o SVG se necessário */
+    justify-content: center;
+    align-items: center;
+}
+
+.combined-challenge-svg {
+    width: 100%; /* O SVG ocupa 100% do container */
+    height: 100%; /* O SVG ocupa 100% do container */
+    object-fit: contain; /* Garante que o SVG seja contido e visível */
+    border-radius: 14px; /* Se o SVG tiver bordas arredondadas internas, isso pode não ser necessário */
+}
+
+.challenges-content-text {
+    flex-grow: 1; /* Permite que o bloco de texto ocupe o espaço restante */
+    max-width: 600px; /* Largura máxima para o texto conforme o design */
+}
+
+.challenges-content-text .section-header-content {
+    text-align: left; /* Alinha o título e a linha à esquerda */
+    margin-bottom: var(--spacing-lg);
+}
+
+.challenges-content-text .section-title {
+    font-family: var(--font-handwritten);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--dark-brown); /* Alterado para var(--dark-brown) para consistência */
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    font-weight: 400;
+    text-align: left; /* Garante alinhamento à esquerda */
+}
+
+.challenges-content-text .line {
+    width: 80px; /* Largura da linha */
+    height: 2px;
+    background-color: var(--dark-brown); /* Alterado para var(--dark-brown) para consistência */
+    margin: 0; /* Remove margem auto para alinhar à esquerda */
+}
+
+.challenges-content-text .main-text-block {
+    color: var(--dark-gray);
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: justify; /* Alinha o texto justificado */
+}
+
+.challenges-content-text .description-text {
+    margin-bottom: var(--spacing-lg);
+}
+
+
+/* ==================================== */
+/* 4. Media Queries para Responsividade Geral e Específica por Seção */
+/* ==================================== */
+
+/* --- O Que É e Por Que Importa Section --- */
+@media (max-width: 992px) {
+    .what-is-family-agriculture-wrapper {
+        padding: 0 var(--spacing-md);
+    }
+    .main-content-area-family-agriculture {
+        font-size: 1.1rem;
+        padding: 0 var(--spacing-md);
+    }
+    .family-agriculture-banner {
+        width: calc(100% - (var(--spacing-md) * 2));
+        height: 250px;
+    }
 }
 
 @media (max-width: 768px) {
-    .visao {
+    .what-is-family-agriculture-section .section-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    .main-content-area-family-agriculture {
+        font-size: 1rem;
+        padding: 0 var(--spacing-sm);
+    }
+    .family-agriculture-banner {
+        height: 200px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .what-is-family-agriculture-section .section-title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+    .main-content-area-family-agriculture {
+        font-size: 0.95rem;
+        padding: 0;
+    }
+    .family-agriculture-banner {
+        height: 180px;
+        border-radius: 8px;
+    }
+}
+
+/* --- Por que a Agricultura Familiar é Vital? Section --- */
+@media (max-width: 992px) {
+    .why-family-agriculture-vital-wrapper {
+        text-align: center;
+    }
+    .why-family-agriculture-vital-section .section-header-content {
+        text-align: center;
+    }
+    .why-family-agriculture-vital-section .section-title {
+        /* Remover padding-left e border-left para centralizar o título em telas menores,
+           ou ajustar a posição da borda se ela for parte do design responsivo */
+        padding-left: 0;
+        border-left: none;
+    }
+    .vital-cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-lg);
+    }
+    .vital-card {
+        width: 90%;
+        max-width: 380px;
+        padding: 80px var(--spacing-md) var(--spacing-md);
+        min-height: auto;
+    }
+    .vital-icon-circle {
+        top: 30px; /* Ajusta a posição para telas menores */
+    }
+    .vital-icon-circle i {
+        font-size: 40px;
+    }
+    .vital-card-title {
+        font-size: 1.1rem;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .why-family-agriculture-vital-section .section-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    .vital-cards-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    .vital-card {
+        margin: 50px auto 0 auto;
+        width: 90%;
+        max-width: 350px;
+        padding: 70px var(--spacing-sm) var(--spacing-sm);
+    }
+    .vital-icon-circle {
+        top: 30px;
+    }
+    .vital-icon-circle i {
+        font-size: 36px;
+    }
+    .vital-card-title {
+        font-size: 1rem;
+        margin-top: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .why-family-agriculture-vital-section .section-title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+    .vital-card {
+        padding: 60px var(--spacing-sm) var(--spacing-sm);
+    }
+    .vital-icon-circle {
+        width: 60px;
+        height: 60px;
+        top: 25px;
+    }
+    .vital-icon-circle i {
+        font-size: 30px;
+    }
+    .vital-card-title {
+        font-size: 0.95rem;
+        margin-top: 30px;
+    }
+}
+
+
+/* --- Desafios e Soluções: O Papel do Conecta Paiol Section --- */
+@media (max-width: 1200px) {
+    .challenges-solutions-wrapper {
+        gap: var(--spacing-xl);
+        padding: 0 var(--spacing-md);
+    }
+    .challenges-image-gallery-svg {
+        width: 550px;
+        height: 430px;
+    }
+    .challenges-content-text .section-title {
+        font-size: clamp(2rem, 3.5vw, 3rem);
+    }
+    .challenges-content-text .main-text-block {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .challenges-solutions-wrapper {
         flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xl);
     }
-
-    .visao img {
+    .challenges-image-gallery-svg {
         width: 100%;
+        max-width: 600px;
+        height: auto;
+        padding: 0 var(--spacing-md);
+    }
+    .combined-challenge-svg {
+        height: auto;
+    }
+    .challenges-content-text {
+        padding: 0 var(--spacing-md);
+        max-width: 100%;
+        text-align: center;
+    }
+    .challenges-content-text .section-header-content {
+        text-align: center;
+    }
+    .challenges-content-text .line {
+        margin: 0 auto;
+    }
+    .challenges-content-text .main-text-block {
+        text-align: center;
     }
 }
 
-/* Parte toda verde */
-
-.beneficios {
-    margin-top: -50px;
+@media (max-width: 768px) {
+    .challenges-solutions-section {
+        padding: var(--spacing-lg) 0;
+    }
+    .challenges-solutions-wrapper {
+        padding: 0 var(--spacing-sm);
+    }
+    .challenges-image-gallery-svg {
+        max-width: 450px;
+    }
+    .challenges-content-text .section-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+    .challenges-content-text .main-text-block {
+        font-size: 16px;
+    }
 }
 
-.beneficios .quadrado-fundo{
-    background-color: #4f3011;
-    margin-top: -35px;
-}
-
-.beneficios h2 {
-    text-align: center;
-    color: #e4d39e;
-    margin-top: -50px;
-}
-
-.beneficios .quadrado-fundo .flex {
-    gap: 50px;
-    justify-content: center;
-}
-
-.beneficios .quadrado-fundo .flex .quadrado{
-    width: 300px;
-    height: 200px;
-    background-color: #cba561;
-    border-radius: 30px;
-    padding: 20px;
-    margin: 20px 0px;
-    border: solid 3px #f8f5ec;
-}
-
-.beneficios .indicador {
-    font-size: 25px;
-    color: #4f3011;
-    margin-bottom: 20px;
-}
-
-.beneficios .txt {
-    font-size: 20px;
-    color: #363a24;
-    text-align: center;
-    width: 280px;
-    margin: 0 auto;
-}
-
-/* Carrossel */
-
-.secao-projetos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    background-color: #e4d29e8e;
-    position: relative;
-}
-
-.carrossel-projetos {
-    display: flex;
-    gap: 20px;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    width: 1080px; 
-    max-width: 80%;
-}
-
-.item-projeto {
-    background-color: #e4d39e;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    flex: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    height: 250px; 
-}
-
-.item-projeto h3 {
-    font-size: 25px;
-    margin-bottom: 15px;
-    min-height: 50px; 
-}
-
-.item-projeto p {
-    color: #4f3011;
-    font-size: 16px;
-    margin-bottom: 20px;
-    min-height: 100px; 
-}
-
-.item-projeto a {
-    font-size: 12px;
-    color: #f8f5ec;
-    text-decoration: none;
-    background-color: #4f3011;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    align-self: center; 
-}
-
-.item-projeto a:hover {
-    background-color: #6f4419;
-}
-
-.botao-carrossel {
-    background-color: #4f3011;
-    border: none;
-    color: #f8f5ec;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color 0.3s ease;
-}
-
-.botao-carrossel:hover {
-    background-color: #6f4419;
-}
-
-.esquerda {
-    left: 10px;
-}
-
-.direita {
-    right: 10px;
-}
-
-/* Rodapé */
-
-.final {
-    background-color: #363a24;
-    color: #e4d39e;
-    padding: 10px 0px;
-}
-
-.final-conteudo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
-}
-
-.logotipo {
-    max-width: 50%;
-    text-align: right;
-}
-
-.logotipo-img {
-    width: auto;
-    height: 60px;
-}
-
-.final .logotipo p {
-    margin: 20px 0;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: right;
-    width: 500px;
-    color: #e4d39e;
-}
-
-.social-rodape {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    justify-content: right;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    font-size: 25px;
-    color: #e4d39e;
-    cursor: pointer;
-}
-
-.direitos {
-    color: #e4d39e;
-    font-size: 16px;
-}
-
-/* Ajustes para o menu-rodape */
-.menu-rodape {
-    text-align: left;
-    width: 300px;
-    height: 310px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.menu-rodape ul {
-    list-style: none;
-    padding: 0; 
-}
-
-.menu-rodape ul li {
-    margin-bottom: 20px; 
-}
-
-.menu-rodape li a {
-    color: #e4d39e; 
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.5 ease;
-}
-
-.menu-rodape a:hover, .social-icons i:hover {
-    color: #cba561;
-}
-
-.final p {
-    text-align: center;
+@media (max-width: 480px) {
+    .challenges-image-gallery-svg {
+        max-width: 350px;
+    }
+    .challenges-content-text .main-text-block {
+        font-size: 15px;
+        padding: 0 var(--spacing-xs);
+    }
 }
