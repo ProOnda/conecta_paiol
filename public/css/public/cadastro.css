@@ -1,382 +1,394 @@
-/* Variáveis de cores e espaçamento (certifique-se de que estão definidas no seu :root principal) */
-/*
-:root {
-    --primary-green: #363A24;
-    --light-background: #F8F8F8;
-    --dark-brown: #4F3011;
-    --golden-brown: #d5c295;
-    --golden-dark: #CBA561;
-    --golden-light: #E4D39E;
-    --black: #000000;
-    --dark-gray: #2E2E2E;
-    --light-beige: #E8E5DA;
-    --medium-beige: #D9D5C9;
-    --soft-yellow-beige: #F8F5EC;
-    --text-color-light: var(--light-background);
-    --text-color-dark: var(--dark-gray);
-    --white: #ffffff;
-    --white-rgb: 255, 255, 255;
-    --black-rgb: 0, 0, 0;
-
-    --font-body: 'Arima', sans-serif;
-    --font-handwritten: 'Allison', cursive;
-    --font-inter: 'Inter', sans-serif;
-    --font-nav: 'Poppins', sans-serif;
-
-    --spacing-sm: 10px;
-    --spacing-md: 20px;
-    --spacing-lg: 60px;
-    --spacing-xl: 100px;
-}
-*/
-
 body {
     margin: 0;
-    font-family: var(--font-body);
-    font-optical-sizing: auto;
-    font-style: normal;
+    font-family: 'Almarai', sans-serif; /* Exemplo, ajuste se tiver variável */
     line-height: 1.6;
+    background-color: #F8F5EC; /* Fundo padrão do design */
+    overflow-x: hidden;
+    position: absolute; /* Ajuste se necessário para o layout base */
+    width: 100vw;
 }
 
-/* MAIN */
-main {
+/*
+ * =========================================
+ * LAYOUT PRINCIPAL DA PÁGINA DE CADASTRO
+ * =========================================
+ * Renomeado de .LOGIN para .CADASTRO
+ */
+.CADASTRO {
+    background-color: #F8F5EC; /* Cor do fundo geral */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    width: 100vw;
     min-height: 100vh;
-    background-image: url("../../img/Login.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: var(--spacing-md);
-    box-sizing: border-box;
+    position: relative;
 }
 
-/* CADASTRO FORM CONTAINER */
-.cadastro-container {
+.CADASTRO .overlap-wrapper {
+    background-color: #F8F5EC;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.CADASTRO .overlap {
     position: relative;
     width: 100%;
-    max-width: 500px;
-    background-color: rgba(var(--white-rgb), 0.504);
-    border: solid 3px var(--primary-green);
-    border-radius: 30px;
-    padding: var(--spacing-lg) var(--spacing-md);
-    box-shadow: 0px 4px 15px rgba(var(--black-rgb), 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+    height: 100%;
 }
 
-.cadastro-container .circulo {
+/*
+ * =========================================
+ * BACKGROUND VERDE DIAGONAL (MESMO DO LOGIN)
+ * =========================================
+ */
+.CADASTRO .rectangle {
     position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: var(--primary-green);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 15px rgba(var(--black-rgb), 0.3);
+    width: 60vw; /* Ajuste conforme o do login */
+    height: 100vh;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%); /* Mantém a diagonal */
+    object-fit: cover;
+    z-index: 0;
+}
+
+/*
+ * =========================================
+ * LOGO DO PROJETO (MESMO DO LOGIN)
+ * =========================================
+ */
+.CADASTRO .favicon {
+    position: absolute;
+    width: 8.33vw; /* Ajuste conforme o do login */
+    height: auto;
+    max-width: 120px;
+    top: 4.88vh; /* Ajuste conforme o do login */
+    left: 3.47vw; /* Ajuste conforme o do login */
+    object-fit: contain;
     z-index: 2;
 }
 
-.cadastro-container .circulo i {
-    font-size: 50px;
-    color: var(--golden-light);
-}
-
-.contact-form {
-    width: 100%;
-    margin-top: 20px;
-    padding-top: 50px;
+/*
+ * =========================================
+ * CONTEÚDO DE TEXTO À ESQUERDA (NO FUNDO VERDE)
+ * =========================================
+ * No login, este era o ".group-3" e ficava à esquerda.
+ * Para o cadastro, ele continua à esquerda, mas precisa ajustar o "left" para o lado verde.
+ */
+.CADASTRO .group-3 { /* Renomeei para ser mais genérico, pode ser 'text-content-section' */
+    position: absolute;
+    width: 50vw; /* Largura da seção de texto, ajuste se necessário */
+    max-width: 450px;
+    height: auto;
+    top: 30vh; /* Posição vertical */
+    left: 3.26vw; /* Posição horizontal no lado verde */
+    padding: 0 10px;
     box-sizing: border-box;
+    z-index: 2;
 }
 
-.input-group {
-    position: relative;
-    margin-bottom: var(--spacing-md);
+.CADASTRO .p { /* Título "Junte-se à Nossa Rede Conectada!" */
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(203, 165, 97, 1) 0%,
+        rgba(228, 211, 158, 1) 100%
+    );
+    -webkit-background-clip: text !important;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    font-family: 'Allison', cursive; /* Fonte do título, ajuste se tiver variável */
+    font-weight: 400;
+    font-size: 4.2vw;
+    max-font-size: 64px;
+    letter-spacing: 0;
+    line-height: 1.1;
+    white-space: normal;
     text-align: left;
-    display: flex;
-    align-items: center;
+    margin-bottom: 20px;
+}
+
+.CADASTRO .text-wrapper-4 { /* Descrição */
     width: 100%;
+    font-family: 'Almarai', sans-serif; /* Fonte da descrição, ajuste se tiver variável */
+    font-weight: 400;
+    color: #ffffff; /* Texto branco no fundo verde */
+    font-size: 1.2vw;
+    max-font-size: 20px;
+    letter-spacing: 0;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/*
+ * =========================================
+ * FORMULÁRIO DE CADASTRO (À DIREITA)
+ * =========================================
+ * No login, este era o ".group" e ficava à direita.
+ * Para o cadastro, ele está à direita, mantendo a mesma lógica.
+ */
+.CADASTRO .group { /* Renomeado para 'cadastro-form-section' para clareza */
+    position: absolute;
+    width: 41.67vw; /* Largura do formulário, ajuste se necessário */
+    max-width: 600px;
+    height: auto;
+    top: 25vh; /* Ajuste a altura para centralizar os 3 inputs e o botão */
+    left: 55vw; /* Posição horizontal no lado bege */
+    z-index: 2;
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
-.input-group i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: var(--spacing-md);
-    background-color: var(--primary-green);
-    color: var(--golden-light);
-    padding: var(--spacing-sm) 12px;
-    z-index: 1;
-    left: 0;
+/*
+ * =========================================
+ * ESTILOS DOS CAMPOS DE INPUT (REUTILIZADOS DO LOGIN)
+ * =========================================
+ * Estas classes podem ser compartilhadas entre login.css e cadastro.css
+ * ou estar em um arquivo de estilos global.
+ */
+.input-container {
+    width: 100%;
+    height: 60px;
+    background-color: #E8E5DA;
+    border-radius: 14px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 27px;
+    box-sizing: border-box;
+    margin-top: 30px; /* Espaçamento entre os campos */
+}
+
+.input-icon {
+    font-size: 20px;
+    color: #363A24;
+    margin-right: 12px;
+}
+
+.input-field {
+    flex-grow: 1;
     height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-/* Estilos para inputs de texto/email/senha */
-.input-group input[type="text"],
-.input-group input[type="email"],
-.input-group input[type="password"] {
-    width: 100%;
-    padding: 14px 15px 14px 50px;
-    background-color: var(--white);
-    font-size: 16px;
+    background-color: transparent;
+    border: none;
     outline: none;
+    font-size: 14px;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    color: #626262;
+    padding-right: 60px; /* Espaço para o ícone de olho */
+}
+
+.input-field::placeholder {
+    color: #626262;
+}
+
+/*
+ * =========================================
+ * ESTILOS DO BOTÃO "PRÓXIMO" (REUTILIZADO DO LOGIN)
+ * =========================================
+ */
+.submit-button {
+    width: 100%;
+    height: 60px;
+    background-color: #E8E5DA;
+    border-radius: 14px;
     border: none;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-.input-group input::placeholder{
-    color: var(--primary-green);
-}
-
-/* Estilos para o LABEL e o NOVO SELECT-WRAPPER */
-.input-group.select-group {
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.input-group.select-group label {
-    font-size: 16px;
-    color: var(--primary-green);
-    margin-bottom: var(--spacing-sm);
-    display: block;
-    padding-left: 50px; /* Alinha com os inputs */
-}
-
-/* Estilos para o select-wrapper */
-.select-wrapper {
-    position: relative; /* Para posicionar a seta dentro dele */
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.select-wrapper select {
-    width: 100%;
-    padding: 14px 15px 14px 50px;
-    background-color: var(--white);
-    font-size: 16px;
     outline: none;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 5px;
-    -webkit-appearance: none; /* Remove estilo padrão do select no Webkit */
-    -moz-appearance: none;    /* Remove estilo padrão do select no Mozilla */
-    appearance: none;         /* Remove estilo padrão do select */
-    /* REMOVIDO: background-image da seta customizada SVG */
-}
-
-.select-wrapper select::-ms-expand {
-    display: none; /* Remove a seta padrão do IE/Edge */
-}
-
-/* Estilo para a setinha do Bootstrap */
-.select-arrow {
-    position: absolute;
-    right: 15px; /* Posição à direita */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2em; /* Tamanho da seta */
-    color: var(--primary-green); /* Cor da seta */
-    pointer-events: none; /* Garante que o clique passe para o select */
-    z-index: 1; /* Garante que a seta esteja acima do select */
-}
-
-
-/* Estilos para Textarea */
-.input-group textarea {
-    width: 100%;
-    padding: 14px 15px 14px 50px;
-    background-color: var(--white);
-    font-size: 16px;
-    outline: none;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 5px;
-    resize: vertical;
-    min-height: 80px;
-}
-
-/* Esconder ícone para inputs que não precisam, ou ajustar padding */
-.input-group .form-icon-placeholder {
-    width: 50px;
-    flex-shrink: 0;
-}
-
-
-/* Campos extras (escondidos por padrão) */
-.extra-fields {
-    display: none;
-    width: 100%;
-}
-
-.extra-fields .input-group i {
-    top: 14px;
-    transform: translateY(0%);
-    align-items: flex-start;
-}
-
-button {
-    width: 100%;
-    padding: var(--spacing-sm);
-    background-color: var(--primary-green);
-    color: var(--golden-light);
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: var(--spacing-sm);
-}
-
-button:hover {
-    background-color: var(--golden-dark);
-}
-
-.login-link{
+    font-size: 14px;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    color: #363A24;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
-    text-align: center;
+    margin-top: 50px; /* Espaçamento acima do botão */
 }
 
-.login-link p {
-    color: var(--dark-gray);
-    font-size: 15px;
-    margin-bottom: 0;
+/*
+ * =========================================
+ * ESTILOS DO ÍCONE DE OLHO (REUTILIZADO DO LOGIN)
+ * =========================================
+ */
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #363A24;
 }
 
-.login-link a{
-    text-decoration: none;
-    font-size: 15px;
-    color: var(--primary-green);
-    transition: color 0.3s ease;
-}
-
-.login-link a:hover {
-    color: var(--golden-dark);
-}
-
-/* Estilo para mensagens de erro do Laravel */
-.text-danger {
-    color: #dc3545;
-    font-size: 0.85em;
-    margin-top: 5px;
-    display: block;
-    text-align: left;
+/*
+ * =========================================
+ * ESTILOS DO LINK "JÁ POSSUI CONTA? FAÇA LOGIN"
+ * =========================================
+ * Ajuste a cor e alinhamento conforme o design.
+ */
+.register-link { /* Renomeei para 'login-link-cadastro' para clareza */
     width: 100%;
-    padding-left: 50px;
-    box-sizing: border-box;
+    text-align: center; /* Centraliza o texto, conforme a imagem */
+    margin-top: 20px;
+    font-size: 14px;
+    color: #626262;
+}
+
+.register-link p {
+    margin: 0;
+}
+
+.register-link a {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: #363A24; /* Cor verde para o link, destacando-o */
+}
+
+.register-link a:hover {
+    text-decoration: underline;
 }
 
 /* =========================================
-   Media Queries para Responsividade
-   ========================================= */
+ * MEDIA QUERIES PARA RESPONSIVIDADE (ADAPTADAS)
+ * =========================================
+ * Ajuste as quebras de linha e tamanhos para telas menores.
+ */
 
-/* Para telas menores que 600px */
-@media (max-width: 600px) {
-    .cadastro-container {
-        border-radius: 20px;
-        padding: var(--spacing-lg) var(--spacing-sm);
+@media (max-width: 992px) {
+    /* Ajustes para tablet e mobile */
+    .CADASTRO .rectangle {
+        clip-path: none; /* Remove a diagonal em mobile */
+        position: relative; /* Não é mais absoluto, segue o fluxo */
+        width: 100vw;
+        height: 250px; /* Altura fixa para a seção verde superior */
+        background-color: #363A24; /* Garante a cor de fundo caso o SVG não carregue */
+        object-fit: cover;
+        top: auto;
+        left: auto;
+        order: 1; /* Ordem para aparecer primeiro no fluxo flexbox */
     }
 
-    .cadastro-container .circulo {
-        width: 80px;
-        height: 80px;
-        top: -40px;
+    .CADASTRO .favicon {
+        position: absolute; /* Mantém absoluto para controle fino */
+        width: 90px;
+        height: 90px;
+        top: 30px; /* Posição no topo da seção verde */
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza */
+        z-index: 3;
     }
 
-    .cadastro-container .circulo i {
-        font-size: 40px;
+    .CADASTRO .group-3 { /* Conteúdo de texto */
+        position: relative; /* Segue o fluxo */
+        width: 90%;
+        max-width: 400px;
+        top: auto;
+        left: auto;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: -150px; /* Ajusta para sobrepor o retângulo verde */
+        z-index: 3;
+        order: 2; /* Aparece depois do retângulo */
     }
 
-    .contact-form {
-        margin-top: var(--spacing-sm);
-        padding-top: 40px;
+    .CADASTRO .p {
+        font-size: 48px;
+        max-font-size: 48px;
+        text-align: center;
     }
 
-    .input-group input,
-    .select-wrapper select, /* Ajustado para o select dentro do wrapper */
-    .input-group textarea {
-        font-size: 14px;
-        padding: 12px 10px 12px 45px;
-    }
-
-    .input-group i {
+    .CADASTRO .text-wrapper-4 {
         font-size: 18px;
-        padding: 8px 10px;
+        max-font-size: 18px;
+        text-align: center;
     }
 
-    .input-group.select-group label {
-        padding-left: 45px;
-        font-size: 14px;
+    .CADASTRO .group { /* Formulário de Cadastro */
+        position: relative; /* Segue o fluxo */
+        width: 90%;
+        max-width: 450px;
+        top: auto;
+        left: auto;
+        transform: none;
+        padding: 40px 0;
+        order: 3; /* Aparece depois do conteúdo de texto */
+        background-color: #F8F5EC; /* Cor de fundo para a área do formulário em mobile */
+        border-radius: 0;
     }
 
-    button {
-        font-size: 15px;
-        padding: 12px;
+    /* Ajustes gerais para inputs e botões em mobile */
+    .input-container {
+        height: 50px;
+        margin-top: 20px;
     }
 
-    .login-link p,
-    .login-link a {
-        font-size: 14px;
+    .input-icon, .toggle-password {
+        font-size: 18px;
     }
 
-    .login-link {
-        flex-direction: column;
-        gap: 5px;
+    .input-field {
+        padding-right: 40px;
     }
 
-    .text-danger {
-        padding-left: 45px;
+    .submit-button {
+        height: 50px;
+        margin-top: 30px;
+    }
+
+    .forgot-password-link, .register-link {
+        font-size: 12px;
     }
 }
 
-/* Para telas muito pequenas */
-@media (max-width: 360px) {
-    .cadastro-container {
-        padding: var(--spacing-md) var(--spacing-sm);
-        max-width: 95%;
+@media (max-width: 600px) {
+    .CADASTRO .rectangle {
+        height: 200px;
     }
-    .contact-form {
-        margin-top: 0;
-        padding-top: 30px;
-    }
-    .cadastro-container .circulo {
+
+    .CADASTRO .favicon {
         width: 70px;
         height: 70px;
-        top: -35px;
+        top: 20px;
     }
-    .cadastro-container .circulo i {
-        font-size: 35px;
+
+    .CADASTRO .group-3 {
+        margin-top: -100px;
+        padding: 10px 0;
     }
-    .input-group input,
-    .select-wrapper select, /* Ajustado para o select dentro do wrapper */
-    .input-group textarea {
+
+    .CADASTRO .p {
+        font-size: 38px;
+        max-font-size: 38px;
+    }
+
+    .CADASTRO .text-wrapper-4 {
+        font-size: 16px;
+        max-font-size: 16px;
+    }
+
+    .input-container {
+        height: 45px;
+        margin-top: 15px;
+    }
+
+    .input-icon, .toggle-password {
+        font-size: 16px;
+    }
+
+    .input-field {
+        padding-right: 35px;
         font-size: 13px;
-        padding: 10px 10px 10px 40px;
     }
-    .input-group i {
-        padding: 6px 8px;
+
+    .submit-button {
+        height: 45px;
+        margin-top: 25px;
     }
-    .input-group.select-group label {
-        padding-left: 40px;
-    }
-    .text-danger {
-        padding-left: 40px;
+
+    .register-link p, .register-link a {
+        font-size: 11px;
     }
 }

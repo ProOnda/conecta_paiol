@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="register-link">
-                    <p>Ainda não tem cadastro? <a href="#">Cadastre-se e junte-se a nós!</a></p>
+                    <p>Ainda não tem cadastro? <a href="{{ route('cadastro') }}">Cadastre-se e junte-se a nós!</a></p>
                 </div>
             </form>
 
@@ -51,6 +51,6 @@
     </div>
 </section>
 @push('scripts')
-    <script src="{{ asset('js/public/login.js') }}"></script>
+<script src="{{ asset('js/public/login.js') }}"></script>
 @endpush
 @endsection

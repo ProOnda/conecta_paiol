@@ -1,96 +1,71 @@
-@extends('layouts.public') {{-- Estende o layout base do seu projeto --}}
+@extends('layouts.auth')
 
 @push('styles')
-    {{-- Estilos específicos para a página de Cadastro --}}
     <link rel="stylesheet" href="{{ asset('css/public/cadastro.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 @endpush
 
-@push('scripts')
-    {{-- Script específico para a lógica de cadastro --}}
-    <script src="{{ asset('js/public/cadastro.js') }}" defer></script>
-@endpush
-
-@section('title', 'Cadastre-se') {{-- Título da página --}}
+@section('title', 'Cadastre-se')
 
 @section('content')
-    <div class="cadastro-container">
-        <div class="circulo">
-            <i class="bi bi-person"></i>
-        </div>
-        <form class="contact-form" action="{{ route('cadastro') }}" method="post">
-            @csrf
+<section class="CADASTRO">
+    <div class="overlap-wrapper">
+        <div class="overlap">
+            {{-- Detalhe de design verde diagonal --}}
+            <img class="rectangle" src="{{ asset('img/public/diagonal-green-shape.svg') }}" alt="Detalhe de Design Verde Diagonal" />
+            {{-- Logo do projeto --}}
+            <img class="favicon" src="{{ asset('img/shared/Logo.jpg') }}" alt="Logo Conecta Paiol de Saberes" />
 
-            <div class="input-group">
-                <i class="bi bi-envelope"></i>
-                <input type="email" id="email" name="email" required placeholder="E-mail" value="{{ old('email') }}">
-                @error('email')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="input-group">
-                <i class="bi bi-lock"></i>
-                <input type="password" id="password" name="password" required placeholder="Senha">
-                @error('password')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="input-group">
-                <i class="bi bi-lock"></i>
-                <input type="password" id="password_confirmation" name="password_confirmation" required placeholder="Confirme a Senha">
+            {{-- Conteúdo de texto à esquerda (lado verde) --}}
+            {{-- Este é o group-3 que estava à esquerda no login. Agora ele está à direita --}}
+            <div class="group-3 login-text-section"> {{-- Adicionei 'login-text-section' para um possível estilo de posicionamento --}}
+                <h1 class="p">Junte-se à Nossa Rede Conectada!</h1>
+                <p class="text-wrapper-4">Crie sua conta e descubra um mundo de alimentos frescos e conhecimento.</p>
             </div>
 
-            <div class="input-group select-group">
-                <label for="role">Tipo de Cadastro:</label>
-                <div class="select-wrapper"> {{-- NOVO: Wrapper para o select e o ícone --}}
-                    <select id="role" name="role" onchange="showFields()" required>
-                        <option value="">Escolha...</option>
-                        <option value="agricultor" {{ old('role') == 'agricultor' ? 'selected' : '' }}>Agricultor</option>
-                        <option value="nutricionista" {{ old('role') == 'nutricionista' ? 'selected' : '' }}>Nutricionista</option>
-                    </select>
-                    <i class="bi bi-chevron-down select-arrow"></i> {{-- NOVO: Ícone da setinha do Bootstrap --}}
-                </div>
-                @error('role')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
+            {{-- Formulário de Cadastro --}}
+            {{-- Este é o 'group' que estava à direita no login. Agora ele está à esquerda --}}
+            <form class="group cadastro-form-section" method="POST" action="{{ route('cadastro') }}">
+                @csrf 
 
+                {{-- Campo de E-mail --}}
+                <div class="input-container">
+                    <i class="bi bi-envelope-fill input-icon"></i>
+                    <input type="email" class="input-field" name="email" placeholder="Seu email" required />
+                </div>
 
-            <div id="agricultor-fields" class="extra-fields">
-                <div class="input-group">
-                    <input type="text" name="nome_agricultor" placeholder="Nome completo" value="{{ old('nome_agricultor') }}">
+                {{-- Campo de Senha --}}
+                <div class="input-container">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <input type="password" class="input-field" name="password" placeholder="Sua senha" required />
+                    <i class="bi bi-eye-fill input-icon toggle-password"></i>
                 </div>
-                <div class="input-group">
-                    <input type="text" name="fazenda_agricultor" placeholder="Nome da fazenda/propriedade" value="{{ old('fazenda_agricultor') }}">
-                </div>
-                <div class="input-group">
-                    <textarea name="produtos_agricultor" placeholder="Tipos de produtos oferecidos">{{ old('produtos_agricultor') }}</textarea>
-                </div>
-                <div class="input-group">
-                    <input type="text" name="localizacao_agricultor" placeholder="Localização da propriedade" value="{{ old('localizacao_agricultor') }}">
-                </div>
-            </div>
 
-            <div id="nutricionista-fields" class="extra-fields">
-                <div class="input-group">
-                    <input type="text" name="nome_nutricionista" placeholder="Nome completo" value="{{ old('nome_nutricionista') }}">
+                {{-- Campo de Confirmação de Senha --}}
+                <div class="input-container">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <input type="password" class="input-field" name="password_confirmation" placeholder="Confirme a senha" required />
+                    <i class="bi bi-eye-fill input-icon toggle-password"></i>
                 </div>
-                <div class="input-group">
-                    <input type="text" name="crn_nutricionista" placeholder="CRN (Conselho Regional de Nutricionistas)" value="{{ old('crn_nutricionista') }}">
-                </div>
-                <div class="input-group">
-                    <textarea name="especializacao_nutricionista" placeholder="Áreas de especialização">{{ old('especializacao_nutricionista') }}</textarea>
-                </div>
-                <div class="input-group">
-                    <input type="text" name="disponibilidade_nutricionista" placeholder="Disponibilidade para consultas" value="{{ old('disponibilidade_nutricionista') }}">
-                </div>
-            </div>
 
-            <button type="submit">Cadastrar</button>
-        </form>
+                {{-- Botão de Submissão --}}
+                <div class="button-container">
+                    <button type="submit" class="submit-button">
+                        Próximo
+                    </button>
+                </div>
 
-        <div class="login-link">
-            <p>Já possui conta?</p>
-            <a href="{{ route('login') }}">Faça login</a>
+                {{-- Link para a página de Login --}}
+                <div class="register-link login-link-cadastro"> {{-- Mantive 'register-link' mas adicionei um para especificidade --}}
+                    <p>Já possui conta? <a href="{{ route('login') }}">Faça login</a></p>
+                </div>
+            </form>
         </div>
     </div>
+</section>
 @endsection
+
+@push('scripts')
+    {{-- Script para o "olhinho" da senha --}}
+    <script src="{{ asset('js/public/login.js') }}"></script> {{-- Reutilizamos o mesmo script do login --}}
+@endpush
