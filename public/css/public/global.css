@@ -485,12 +485,11 @@ main {
 .footer-wave-top {
     position: relative; /* Mantém relative para ocupar o espaço no fluxo */
     width: 100%;
-    height: 180px; /* Altura da "área" da onda. Ajuste se sua onda SVG for mais alta/baixa. */
+    height: 220px; /* Altura da "área" da onda. Ajuste se sua onda SVG for mais alta/baixa. */
     display: flex;
     justify-content: center;
     align-items: flex-end; /* Alinha a imagem da onda na parte inferior do seu container */
-    overflow: hidden; /* Garante que qualquer parte do SVG que passe do height seja cortada */
-    /* background-color: var(--soft-yellow-beige); /* Opcional: apenas se a área da onda precisar de um fundo diferente do main-footer */
+    overflow: hidden;
 }
 
 /* Estilo para a imagem SVG dentro da div footer-wave-top */

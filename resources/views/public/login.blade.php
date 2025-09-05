@@ -1,39 +1,56 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/public/login.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
-    <title>Login</title>
-</head>
-<body>
-    <main>
-        <div class="login">
-            <div class="circulo">
-                <i class="bi bi-person"></i>
-            </div>
-            <form class="contact-form" action="#" method="post">
-                <div class="input-group">
-                    <i class="bi bi-envelope"></i>
-                    <input type="email" id="email" name="email" required placeholder="E-mail">
+@extends('layouts.auth')
+
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/public/login.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+@endpush
+
+@section('title', 'Entrar')
+
+@section('content')
+<section class="LOGIN">
+    <div class="overlap-wrapper">
+        <div class="overlap">
+            <img class="rectangle" src="{{ asset('img/public/diagonal-green-shape.svg') }}" alt="Detalhe de Design Verde Diagonal" />
+            <img class="favicon" src="{{ asset('img/shared/Logo.jpg') }}" alt="Logo Conecta Paiol de Saberes" />
+
+            <form class="group" method="POST" action="{{ route('login') }}">
+                @csrf {{-- Token CSRF para segurança no Laravel --}}
+
+                <div class="input-container">
+                    <i class="bi bi-envelope-fill input-icon"></i>
+                    <input type="email" class="input-field" placeholder="Seu email" />
                 </div>
-                <div class="input-group">
-                    <i class="bi bi-lock"></i>
-                    <input type="password" id="password" name="password" required placeholder="Senha">
+
+                <div class="input-container">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <input type="password" class="input-field" placeholder="Sua senha" />
+                    <i class="bi bi-eye-fill input-icon toggle-password"></i>
                 </div>
-                <button type="submit">Login</button>
+
+                <div class="forgot-password-link">
+                    <a href="">Esqueceu a senha?</a>
+                </div>
+
+                <div class="button-container">
+                    <button class="submit-button">
+                        Enviar
+                    </button>
+                </div>
+
+                <div class="register-link">
+                    <p>Ainda não tem cadastro? <a href="#">Cadastre-se e junte-se a nós!</a></p>
+                </div>
             </form>
 
-            <div class="cadastro">
-                <p>Não possui cadastro? </p>
-                <a href="{{ route('public.cadastro') }}">Cadastre-se</a>
+            <div class="group-3">
+                <h1 class="p">Bem-vindo de Volta ao Conecta Paiol!</h1>
+                <p class="text-wrapper-4">Faça login para acessar suas cestas, pedidos e muito mais.</p>
             </div>
         </div>
-    </main>
-</body>
-</html>
+    </div>
+</section>
+@push('scripts')
+    <script src="{{ asset('js/public/login.js') }}"></script>
+@endpush
+@endsection

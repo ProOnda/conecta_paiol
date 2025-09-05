@@ -1,8 +1,41 @@
+/* Variáveis de cores e espaçamento (certifique-se de que estão definidas no seu :root principal) */
+/*
+:root {
+    --primary-green: #363A24;
+    --light-background: #F8F8F8;
+    --dark-brown: #4F3011;
+    --golden-brown: #d5c295;
+    --golden-dark: #CBA561;
+    --golden-light: #E4D39E;
+    --black: #000000;
+    --dark-gray: #2E2E2E;
+    --light-beige: #E8E5DA;
+    --medium-beige: #D9D5C9;
+    --soft-yellow-beige: #F8F5EC;
+    --text-color-light: var(--light-background);
+    --text-color-dark: var(--dark-gray);
+    --white: #ffffff;
+    --white-rgb: 255, 255, 255;
+    --black-rgb: 0, 0, 0;
+
+    --font-body: 'Arima', sans-serif;
+    --font-handwritten: 'Allison', cursive;
+    --font-inter: 'Inter', sans-serif;
+    --font-nav: 'Poppins', sans-serif;
+
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 60px;
+    --spacing-xl: 100px;
+}
+*/
+
 body {
     margin: 0;
-    font-family: "Arima", system-ui;
+    font-family: var(--font-body);
     font-optical-sizing: auto;
     font-style: normal;
+    line-height: 1.6;
 }
 
 /* MAIN */
@@ -11,29 +44,33 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("../../img/Login.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding: var(--spacing-md);
+    box-sizing: border-box;
 }
 
-/* LOGIN */
-.login {
+/* CADASTRO FORM CONTAINER */
+.cadastro-container {
     position: relative;
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.504);
-    border: solid 3px #113615;
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(var(--white-rgb), 0.504);
+    border: solid 3px var(--primary-green);
     border-radius: 30px;
-    padding: 20px 40px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: var(--spacing-lg) var(--spacing-md);
+    box-shadow: 0px 4px 15px rgba(var(--black-rgb), 0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
-.login .circulo {
+.cadastro-container .circulo {
     position: absolute;
     top: -50px;
     left: 50%;
@@ -41,83 +78,305 @@ main {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: #113615;
+    background-color: var(--primary-green);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 15px rgba(var(--black-rgb), 0.3);
+    z-index: 2;
 }
 
-.login .circulo i {
+.cadastro-container .circulo i {
     font-size: 50px;
-    color: #dafb90;
+    color: var(--golden-light);
 }
 
 .contact-form {
-    margin-top: 70px;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 50px;
+    box-sizing: border-box;
 }
 
 .input-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
     text-align: left;
-    color: #113615;
     display: flex;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .input-group i {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px;
-    background-color: #113615;
-    padding: 10px 12px;
+    font-size: var(--spacing-md);
+    background-color: var(--primary-green);
+    color: var(--golden-light);
+    padding: var(--spacing-sm) 12px;
+    z-index: 1;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.input-group input, .input-group select, .input-group textarea {
-    width: 300px;
-    padding: 14px 40px;
-    background-color: white;
+/* Estilos para inputs de texto/email/senha */
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 14px 15px 14px 50px;
+    background-color: var(--white);
     font-size: 16px;
-    margin-left: 20px;
     outline: none;
     border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.input-group input::placeholder{
+    color: var(--primary-green);
+}
+
+/* Estilos para o LABEL e o NOVO SELECT-WRAPPER */
+.input-group.select-group {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input-group.select-group label {
+    font-size: 16px;
+    color: var(--primary-green);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+    padding-left: 50px; /* Alinha com os inputs */
+}
+
+/* Estilos para o select-wrapper */
+.select-wrapper {
+    position: relative; /* Para posicionar a seta dentro dele */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 14px 15px 14px 50px;
+    background-color: var(--white);
+    font-size: 16px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    -webkit-appearance: none; /* Remove estilo padrão do select no Webkit */
+    -moz-appearance: none;    /* Remove estilo padrão do select no Mozilla */
+    appearance: none;         /* Remove estilo padrão do select */
+    /* REMOVIDO: background-image da seta customizada SVG */
+}
+
+.select-wrapper select::-ms-expand {
+    display: none; /* Remove a seta padrão do IE/Edge */
+}
+
+/* Estilo para a setinha do Bootstrap */
+.select-arrow {
+    position: absolute;
+    right: 15px; /* Posição à direita */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em; /* Tamanho da seta */
+    color: var(--primary-green); /* Cor da seta */
+    pointer-events: none; /* Garante que o clique passe para o select */
+    z-index: 1; /* Garante que a seta esteja acima do select */
+}
+
+
+/* Estilos para Textarea */
+.input-group textarea {
+    width: 100%;
+    padding: 14px 15px 14px 50px;
+    background-color: var(--white);
+    font-size: 16px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Esconder ícone para inputs que não precisam, ou ajustar padding */
+.input-group .form-icon-placeholder {
+    width: 50px;
+    flex-shrink: 0;
+}
+
+
+/* Campos extras (escondidos por padrão) */
+.extra-fields {
+    display: none;
+    width: 100%;
+}
+
+.extra-fields .input-group i {
+    top: 14px;
+    transform: translateY(0%);
+    align-items: flex-start;
 }
 
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #113615;
-    color: #dafb90;
+    padding: var(--spacing-sm);
+    background-color: var(--primary-green);
+    color: var(--golden-light);
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: var(--spacing-sm);
 }
 
 button:hover {
-    background-color: #64a430;
+    background-color: var(--golden-dark);
 }
 
-.cadastro {
+.login-link{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    text-align: center;
 }
 
-.cadastro p {
-    color: #272727;
+.login-link p {
+    color: var(--dark-gray);
     font-size: 15px;
+    margin-bottom: 0;
 }
 
-.cadastro a {
+.login-link a{
     text-decoration: none;
     font-size: 15px;
-    color: #113615;
+    color: var(--primary-green);
+    transition: color 0.3s ease;
 }
 
-.extra-fields {
-    display: none;
+.login-link a:hover {
+    color: var(--golden-dark);
+}
+
+/* Estilo para mensagens de erro do Laravel */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding-left: 50px;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   Media Queries para Responsividade
+   ========================================= */
+
+/* Para telas menores que 600px */
+@media (max-width: 600px) {
+    .cadastro-container {
+        border-radius: 20px;
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .cadastro-container .circulo {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+    }
+
+    .cadastro-container .circulo i {
+        font-size: 40px;
+    }
+
+    .contact-form {
+        margin-top: var(--spacing-sm);
+        padding-top: 40px;
+    }
+
+    .input-group input,
+    .select-wrapper select, /* Ajustado para o select dentro do wrapper */
+    .input-group textarea {
+        font-size: 14px;
+        padding: 12px 10px 12px 45px;
+    }
+
+    .input-group i {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+
+    .input-group.select-group label {
+        padding-left: 45px;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .login-link p,
+    .login-link a {
+        font-size: 14px;
+    }
+
+    .login-link {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .text-danger {
+        padding-left: 45px;
+    }
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 360px) {
+    .cadastro-container {
+        padding: var(--spacing-md) var(--spacing-sm);
+        max-width: 95%;
+    }
+    .contact-form {
+        margin-top: 0;
+        padding-top: 30px;
+    }
+    .cadastro-container .circulo {
+        width: 70px;
+        height: 70px;
+        top: -35px;
+    }
+    .cadastro-container .circulo i {
+        font-size: 35px;
+    }
+    .input-group input,
+    .select-wrapper select, /* Ajustado para o select dentro do wrapper */
+    .input-group textarea {
+        font-size: 13px;
+        padding: 10px 10px 10px 40px;
+    }
+    .input-group i {
+        padding: 6px 8px;
+    }
+    .input-group.select-group label {
+        padding-left: 40px;
+    }
+    .text-danger {
+        padding-left: 40px;
+    }
 }

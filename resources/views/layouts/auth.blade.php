@@ -19,14 +19,10 @@
     @stack('styles') {{-- Para CSS específico da página atual --}}
 </head>
 <body>
-    @yield('full_header') {{-- Este é o ponto onde o cabeçalho completo será injetado --}}
-
     <main>
         @yield('content') {{-- Conteúdo da página específica --}}
     </main>
 
-    @include('partials.public_footer')
-     
     @stack('scripts') {{-- Para JS específico da página atual --}}
 </body>
 </html>

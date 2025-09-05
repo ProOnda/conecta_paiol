@@ -1,124 +1,579 @@
 body {
     margin: 0;
-    font-family: "Arima", system-ui;
+    font-family: var(--font-body);
     font-optical-sizing: auto;
     font-style: normal;
-}
-
-/* MAIN */
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url("../../img/Login.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* LOGIN */
-.login {
-    position: relative;
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.504);
-    border: solid 3px #113615;
-    border-radius: 30px;
-    padding: 20px 40px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.login .circulo {
+    line-height: 1.6;
+    background-color: var(--soft-yellow-beige); /* Fundo padrão do design */
+    overflow-x: hidden; /* **Importante para evitar scroll horizontal** */
     position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #113615;
+}
+
+.LOGIN {
+    background-color: var(--soft-yellow-beige);
     display: flex;
+    flex-direction: row; /* Mantém horizontal em telas grandes */
     justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    width: 100vw; /* Ajustado para largura da viewport */
+    min-height: 100vh; /* Ocupa toda a altura da viewport */
+    position: relative; /* Base para elementos absolutamente posicionados */
 }
 
-.login .circulo i {
-    font-size: 50px;
-    color: #dafb90;
+/* Wrapper para o conteúdo interno, mas adaptado para responsividade */
+/* O .overlap-wrapper e .overlap juntos simulam o container flexível de 1440px */
+.LOGIN .overlap-wrapper {
+    background-color: var(--soft-yellow-beige);
+    width: 100%; /* Ocupa 100% da largura do .LOGIN */
+    height: 100vh; /* Ocupa toda a altura da viewport */
+    position: relative; /* Necessário para os filhos absolutos */
+    overflow: hidden; /* Corta o que vaza, especialmente do SVG e clip-path */
 }
 
-.contact-form {
-    margin-top: 70px;
-}
-
-.input-group {
+.LOGIN .overlap {
     position: relative;
-    margin-bottom: 20px;
-    text-align: left;
-    color: #dafb90;
-    display: flex;
-    align-items: center;
+    width: 100%; /* Ocupa 100% da largura do pai (.overlap-wrapper) */
+    height: 100%; /* Ocupa 100% da altura do pai */
 }
 
-.input-group i {
+/* O SVG do Retângulo Verde - Responsivo */
+.LOGIN .rectangle {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 60vw; /* Ajustado para largura da viewport. Ajuste este valor (e.g., 55vw, 65vw) */
+    height: 100vh; /* Ocupa a altura total da viewport */
+    top: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%); /* Ajuste o '80%' para o ângulo */
+    object-fit: cover; /* Garante que o SVG cubra a área sem distorcer */
+    z-index: 0; /* Fica no fundo */
+}
+
+/* Logo - Posição e tamanho responsivos */
+.LOGIN .favicon {
+    position: absolute;
+    width: 8.33vw; /* 120px / 1440px = ~0.0833, então 8.33% da largura do container */
+    height: auto; /* Mantém a proporção */
+    max-width: 120px; /* Limite máximo de tamanho */
+    top: 4.88vh; /* 50px / 1024px = ~0.0488 */
+    left: 3.47vw; /* 50px / 1440px = ~0.0347 */
+    object-fit: contain;
+    z-index: 2; /* Acima do background */
+}
+
+/* Container Principal */
+.input-container {
+    width: 600px;
+    height: 60px;
+    background-color: #E8E5DA;
+    border-radius: 14px;
+    position: relative;
+    display: flex; /* Permite alinhar o ícone e o input */
+    align-items: center; /* Alinha os itens verticalmente */
+    padding-left: 27px; /* Espaço para o ícone */
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+    margin-top: 30px;
+}
+
+/* Estilização do Ícone */
+.input-icon {
+    font-size: 20px; /* Tamanho do ícone */
+    color: #363A24; /* Cor do ícone */
+    margin-right: 12px; /* Espaçamento entre o ícone e o input */
+}
+
+/* Estilização do Campo de Input */
+.input-field {
+    flex-grow: 1; /* Faz o input preencher o espaço restante no container */
+    height: 100%; /* Ocupa toda a altura do container */
+    background-color: transparent; /* Fundo transparente para o input */
+    border: none; /* Remove a borda padrão do input */
+    outline: none; /* Remove a borda de foco */
+    font-size: 14px;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    color: #626262; /* Cor do texto digitado */
+    padding-right: 60px;
+}
+
+/* Estilização do Placeholder (o texto "Seu email") */
+.input-field::placeholder {
+    color: #626262;
+}
+
+.submit-button {
+    width: 600px;
+    height: 60px;
+    background-color: #E8E5DA;
+    border-radius: 14px;
+    border: none; /* Remove a borda padrão do botão */
+    outline: none; /* Remove a borda de foco */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    
+    /* Estilização e centralização do texto */
+    font-size: 14px;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    color: #363A24;
+    
+    /* Usamos Flexbox para centralizar o texto */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin-top: 50px;
+}
+
+.toggle-password {
+    position: absolute; /* Posiciona o ícone em relação ao .input-container */
+    right: 20px; /* Distância da borda direita */
+    cursor: pointer; /* Indica que é clicável */
     font-size: 20px;
-    background-color: #113615;
-    padding: 10px 12px;
+    color: #363A24;
 }
 
-.input-group input {
-    width: 300px;
-    padding: 14px 40px;
-    background-color: white;
-    font-size: 16px;
-    margin-left: 20px;
-    outline: none;
-    border: none;
+/* Ajuste responsivo, caso necessário */
+@media (max-width: 768px) {
+    .submit-button {
+        width: 90%; /* Ajusta a largura para telas menores */
+    }
 }
 
-.input-group input::placeholder{
-    color: #113615;
+/* Ajuste responsivo, caso necessário */
+@media (max-width: 768px) {
+    .input-container {
+        width: 90%; /* Ajusta a largura para telas menores */
+    }
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #113615;
-    color: #dafb90;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+/* Grupo do formulário (inputs e botão) - Posição e tamanho responsivos */
+.LOGIN .group {
+    position: absolute;
+    width: 41.67vw; /* 600px / 1440px = ~0.4167 */
+    max-width: 600px; /* Limite máximo de largura */
+    height: auto; /* Altura flexível */
+    top: 40vh; /* 428px / 1024px = ~0.4179 */
+    left: 55vw; /* 720px / 1440px = 0.5, então 50% da largura do container principal */
+    z-index: 2; /* Acima do background */
+    padding: 0 20px; /* Pequeno padding para garantir que não cole nas bordas */
+    box-sizing: border-box;
 }
 
-button:hover {
-    background-color: #64a430;
-}
-
-
-.cadastro{
+/* Cada campo de input (envelope e cadeado) - Responsivo */
+.LOGIN .group-wrapper,
+.LOGIN .div-wrapper {
+    position: relative; /* Changed from absolute to relative to stack vertically */
+    width: 100%; /* Ocupa 100% da largura do .group (seu container do form) */
+    height: 60px; /* Altura fixa para o input box */
+    background-color: var(--light-beige);
+    border-radius: 14px;
+    margin-bottom: 20px; /* Espaçamento entre os campos */
     display: flex;
+    align-items: center; /* Alinha o ícone e o texto verticalmente */
+    padding-left: 27px; /* Padding para o ícone */
+    box-sizing: border-box;
+}
+
+/* O div dentro do group-wrapper/div-wrapper */
+.LOGIN .div,
+.LOGIN .group-2 {
+    position: relative; /* Relativo ao pai (group-wrapper/div-wrapper) */
+    width: 100%; /* Ocupa a largura total para o input */
+    height: 100%; /* Ocupa a altura total */
+    display: flex; /* Para alinhar o ícone e o texto/input */
     align-items: center;
-    gap: 10px;
+}
+
+/* Ícones do Bootstrap (se estiverem como <i>, como sugerimos antes) */
+/* Substitui .vector e .img */
+.LOGIN .div .bi,
+.LOGIN .group-2 .bi {
+    font-size: 1.7vw; /* Tamanho responsivo para o ícone */
+    max-font-size: 25px; /* Tamanho máximo do ícone */
+    color: var(--primary-green);
+    margin-right: 12px; /* Espaçamento entre ícone e texto */
+}
+
+/* Estilos para os INPUTS (agora usando .text-wrapper e .text-wrapper-2 diretamente nos inputs) */
+.LOGIN .text-wrapper,
+.LOGIN .text-wrapper-2 {
+    flex-grow: 1; /* Faz o input preencher o espaço restante */
+    height: 100%; /* Faz o input preencher a altura do pai */
+    padding: 0 10px; /* Padding interno do input */
+    background-color: transparent; /* Fundo transparente para o input */
+    border: none; /* Remove a borda padrão do input */
+    outline: none; /* Remove o outline ao focar */
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: #616161; /* Cor do texto digitado */
+    font-size: 1.1vw; /* Tamanho responsivo para a fonte */
+    max-font-size: 14px; /* Tamanho máximo da fonte */
+    white-space: nowrap; /* Impede a quebra de linha (se for um placeholder que excede) */
+}
+
+/* Estilo para o placeholder dos inputs (mesmo que o texto digitado) */
+.LOGIN .text-wrapper::placeholder,
+.LOGIN .text-wrapper-2::placeholder {
+    color: #616161;
+    font-size: 1.1vw;
+    max-font-size: 14px;
+}
+
+/* Botão Enviar - Responsivo */
+.LOGIN .overlap-group-wrapper {
+    position: relative; /* Alterado para relative */
+    width: 100%; /* Ocupa a largura total do .group */
+    height: 60px;
+    margin-top: 40px; /* Espaçamento acima do botão */
+    box-sizing: border-box;
+}
+
+.LOGIN .overlap-group {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-beige);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LOGIN .text-wrapper-3 {
+    width: auto; /* Largura automática */
+    font-family: "Almarai-Regular", Helvetica;
+    font-weight: 400;
+    color: var(--primary-green);
+    font-size: 1.2vw; /* Tamanho responsivo */
+    max-font-size: 14px; /* Tamanho máximo */
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    /* Removido position: absolute, top, left */
+}
+
+/* Estilo comum para todos os links no formulário */
+.forgot-password-link a,
+.register-link a {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.3s ease; /* Adiciona uma transição suave para o hover */
+    color: #626262; /* Cor padrão do texto, para harmonizar com a descrição */
+}
+
+/* Estilo para o link "Esqueceu a senha?" */
+.forgot-password-link {
+    width: 600px;
+    text-align: right; /* Alinha o link à direita do formulário */
     margin-top: 10px;
 }
 
-.cadastro p {
-    color: #272727;
-    font-size: 15px;
+.forgot-password-link a {
+    font-size: 14px;
 }
 
-.cadastro a{
-    text-decoration: none;
-    font-size: 15px;
-    color: #113615;
+.forgot-password-link a:hover {
+    color: #363A24; /* O link fica verde escuro ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* Estilo para o link "Cadastre-se e junte-se a nós!" */
+.register-link {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #626262; /* Cor padrão do parágrafo */
+}
+
+.register-link p {
+    margin: 0;
+}
+
+.register-link a {
+    font-size: 14px;
+    font-weight: 700; /* Deixa o link mais destacado */
+    color: #363A24; /* O link de cadastro é sempre verde escuro */
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo da esquerda (Bem-vindo) - Posição e tamanho responsivos */
+.LOGIN .group-3 {
+    position: absolute;
+    width: 50vw; /* 361px / 1440px = ~0.25 */
+    max-width: 450px; /* Limite máximo de largura */
+    height: auto; /* Altura flexível */
+    top: 30vh; /* 273px / 1024px = ~0.2666 */
+    left: 3.26vw; /* 47px / 1440px = ~0.0326 */
+    padding: 0 10px; /* Pequeno padding interno */
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.LOGIN .p { /* Título Bem-vindo */
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(203, 165, 97, 1) 0%,
+        rgba(228, 211, 158, 1) 100%
+    );
+    -webkit-background-clip: text !important;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    font-family: var(--font-handwritten);
+    font-weight: 400;
+    font-size: 4.2vw; /* 64px / 1440px = ~0.0444 */
+    max-font-size: 64px; /* Limite máximo para a fonte */
+    letter-spacing: 0;
+    line-height: 1.1; /* Ajuste para espaçamento entre linhas */
+    white-space: normal; /* Permite quebrar a linha */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.LOGIN .text-wrapper-4 { /* Descrição */
+    width: 100%;
+    font-family: "Almarai-Regular", Helvetica;
+    font-weight: 400;
+    color: var(--white); /* Cor branca para o texto */
+    font-size: 1.2vw; /* 20px / 1440px = ~0.0138 */
+    max-font-size: 20px; /* Limite máximo para a fonte */
+    letter-spacing: 0;
+    line-height: 1.6; /* Espaçamento entre linhas */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* =========================================
+   Media Queries para Responsividade
+   ========================================= */
+
+/* Para telas menores que 992px (tablets em modo paisagem e menores) */
+@media (max-width: 992px) {
+    .LOGIN {
+        flex-direction: column; /* Empilha as seções verticalmente */
+        justify-content: flex-start;
+        align-items: center; /* Centraliza o conteúdo */
+    }
+
+    .LOGIN .overlap-wrapper {
+        height: auto; /* Altura flexível */
+        min-height: 100vh; /* Garante que ocupe a altura em mobile */
+        width: 100%;
+    }
+
+    .LOGIN .overlap {
+        display: flex; /* Usar flexbox para organizar elementos em mobile */
+        flex-direction: column;
+        align-items: center; /* Centraliza horizontalmente */
+        height: auto; /* Altura flexível */
+        width: 100%;
+    }
+
+    .LOGIN .rectangle {
+        /* Remove o clip-path em mobile, volta para um retângulo normal */
+        clip-path: none;
+        position: relative; /* Não absoluto para fluxo normal */
+        width: 100vw; /* Largura total */
+        height: 250px; /* Altura fixa para a seção superior em mobile */
+        background-color: var(--primary-green); /* Ativa a cor de fundo */
+        object-fit: cover;
+        top: auto; /* Reseta top/left */
+        left: auto;
+        order: 1; /* Define a ordem para aparecer primeiro */
+    }
+
+    .LOGIN .favicon {
+        position: absolute; /* Mantém absoluto para controle preciso */
+        width: 90px;
+        height: 90px;
+        top: 30px; /* Ajusta a posição no topo */
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza */
+        z-index: 3; /* Acima de tudo */
+    }
+
+    .LOGIN .group-3 { /* Conteúdo "Bem-vindo" */
+        position: relative; /* Altera para relativo para fluxo normal */
+        width: 90%; /* Ocupa mais largura */
+        max-width: 400px; /* Limite */
+        top: auto;
+        left: auto;
+        text-align: center; /* Centraliza texto */
+        padding: 20px 0;
+        margin-top: -150px; /* Move para cima, sobre o retângulo verde */
+        z-index: 3;
+        order: 2; /* Ordem após o retângulo */
+    }
+
+    .LOGIN .p {
+        font-size: 48px; /* Reduz o tamanho da fonte */
+        max-font-size: 48px;
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .LOGIN .text-wrapper-4 {
+        font-size: 18px; /* Reduz o tamanho da fonte */
+        max-font-size: 18px;
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .LOGIN .group { /* Formulário */
+        position: relative; /* Altera para relativo */
+        width: 90%; /* Ocupa mais largura */
+        max-width: 450px; /* Limite */
+        top: auto;
+        left: auto;
+        transform: none; /* Remove a transformação */
+        padding: 40px 0; /* Padding vertical */
+        order: 3; /* Ordem após o texto de boas-vindas */
+        background-color: var(--soft-yellow-beige); /* Fundo */
+        border-radius: 0; /* Remove border-radius se não desejar */
+    }
+
+    /* Ajustes para inputs em mobile */
+    .LOGIN .group-wrapper,
+    .LOGIN .div-wrapper {
+        height: 50px; /* Menor altura para inputs */
+        margin-bottom: 15px;
+        padding-left: 15px; /* Ajusta padding para ícone */
+    }
+
+    .LOGIN .div .bi,
+    .LOGIN .group-2 .bi {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    .LOGIN .text-wrapper,
+    .LOGIN .text-wrapper-2 {
+        font-size: 16px;
+    }
+
+    .LOGIN .text-wrapper-3 {
+        font-size: 16px;
+    }
+
+    .LOGIN .overlap-group-wrapper {
+        margin-top: 30px;
+        height: 50px;
+    }
+
+    /* Adicionar estilo para o link de cadastro se ele estiver em uma div separada */
+    .register-link { /* Assumindo que você tem essa classe para o "Ainda não tem cadastro?" */
+        margin-top: 30px;
+        font-size: 14px;
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+    }
+    .register-link p,
+    .register-link a {
+        font-size: 14px;
+    }
+}
+
+/* Para telas menores que 600px (celulares) */
+@media (max-width: 600px) {
+    .LOGIN .rectangle {
+        height: 200px;
+    }
+
+    .LOGIN .favicon {
+        width: 70px;
+        height: 70px;
+        top: 20px;
+    }
+
+    .LOGIN .group-3 {
+        margin-top: -100px; /* Ajusta mais para cima */
+        padding: 10px 0;
+    }
+
+    .LOGIN .p {
+        font-size: 38px;
+        max-font-size: 38px;
+    }
+
+    .LOGIN .text-wrapper-4 {
+        font-size: 16px;
+        max-font-size: 16px;
+    }
+
+    .LOGIN .group {
+        padding: 30px 0;
+    }
+
+    .LOGIN .group-wrapper,
+    .LOGIN .div-wrapper {
+        height: 45px;
+        margin-bottom: 10px;
+    }
+
+    .LOGIN .div .bi,
+    .LOGIN .group-2 .bi {
+        font-size: 18px;
+    }
+
+    .LOGIN .text-wrapper,
+    .LOGIN .text-wrapper-2 {
+        font-size: 14px;
+    }
+
+    .LOGIN .text-wrapper-3 {
+        font-size: 14px;
+    }
+
+    .LOGIN .overlap-group-wrapper {
+        margin-top: 20px;
+        height: 45px;
+    }
+
+    .register-link p,
+    .register-link a {
+        font-size: 12px;
+    }
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 400px) {
+    .LOGIN .rectangle {
+        height: 180px;
+    }
+
+    .LOGIN .favicon {
+        width: 60px;
+        height: 60px;
+        top: 15px;
+    }
+
+    .LOGIN .group-3 {
+        margin-top: -80px;
+    }
+
+    .LOGIN .p {
+        font-size: 30px;
+    }
+
+    .LOGIN .text-wrapper-4 {
+        font-size: 14px;
+    }
+
+    .LOGIN .group-wrapper,
+    .LOGIN .div-wrapper,
+    .LOGIN .overlap-group-wrapper {
+        height: 40px;
+    }
+
+    .LOGIN .text-wrapper,
+    .LOGIN .text-wrapper-2,
+    .LOGIN .text-wrapper-3 {
+        font-size: 13px;
+    }
+
+    .LOGIN .div .bi,
+    .LOGIN .group-2 .bi {
+        font-size: 16px;
+    }
 }
