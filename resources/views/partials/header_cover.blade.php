@@ -29,7 +29,9 @@
                     <li class="nav-item"><a href="{{ route('nutricionistas.index') }}" class="nav-link">NUTRICIONISTAS</a></li>
                     <li class="nav-item"><a href="{{ route('explorar.index') }}" class="nav-link">EXPLORAR</a></li>
                     <li class="nav-item"><a href="{{ route('contato') }}" class="nav-link">CONTATO</a></li>
-                    <li class="nav-item nav-item-login"><a href="{{ route('login') }}" class="nav-link">LOGIN</a></li>
+                    <li class="nav-item nav-item-login">
+                        <a href="{{ route('login') }}" class="nav-link" **target="_blank" **>LOGIN</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -41,17 +43,17 @@
                 <div class="hero-text-content">
                     <h1 class="hero-title">{{ $title ?? 'Título Padrão' }}</h1>
                     @if (isset($description))
-                        <p class="hero-description">{{ $description }}</p>
+                    <p class="hero-description">{{ $description }}</p>
                     @endif
                     <div class="breadcrumb-nav">
                         @foreach ($breadcrumb_items as $item)
-                            {{-- ALTERADO AQUI: De <a> para <span> --}}
-                            <span class="breadcrumb-item @if(isset($item['active']) && $item['active']) breadcrumb-active @endif">
-                                {{ $item['label'] }}
-                            </span>
-                            @if (!$loop->last)
-                                <span class="breadcrumb-separator">></span>
-                            @endif
+                        {{-- ALTERADO AQUI: De <a> para <span> --}}
+                        <span class="breadcrumb-item @if(isset($item['active']) && $item['active']) breadcrumb-active @endif">
+                            {{ $item['label'] }}
+                        </span>
+                        @if (!$loop->last)
+                        <span class="breadcrumb-separator">></span>
+                        @endif
                         @endforeach
                     </div>
                 </div>
@@ -66,6 +68,6 @@
         </div>
     </div>
     <div class="hero-wave-bottom">
-            <img src="{{ asset('img/shared/vetor-onda.svg') }}" alt="Onda decorativa">
+        <img src="{{ asset('img/shared/vetor-onda.svg') }}" alt="Onda decorativa">
     </div>
 </header>

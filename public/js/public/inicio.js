@@ -135,3 +135,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(numElement); // Observa o elemento `#num`
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona o link de login pelo seu seletor
+    const loginLink = document.querySelector('.nav-item-login .nav-link');
+
+    // Verifica se o link foi encontrado antes de adicionar o evento
+    if (loginLink) {
+        loginLink.addEventListener('click', function(event) {
+            // Previne o comportamento padrão do link
+            event.preventDefault();
+
+            // Abre a URL do link em uma nova janela/aba
+            window.open(this.href, '_blank');
+        });
+    }
+});
